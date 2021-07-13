@@ -1,5 +1,9 @@
 <template>
-  <div class='sidebar'>
+  <div :class="{
+      'sidebar': true,
+      'sidebar--hide': hide,
+      'sidebar--show': !hide,
+    }">
     <div class='sidebar__title'>
       <span class='sidebar__title__bold'>Ming's Storage</span><br />
       <span class='sidebar__title__thin'>程序記憶</span>
@@ -9,14 +13,17 @@
 </template>
 
 <script>
+import { ref } from 'vue'
 export default {
   name: 'Sidebar',
   props: ['currentIndex'],
   setup (props, context) {
-    function hideSidebar () {
-      console.log('hide mine')
+    const hide = ref(true)
+    function hideSidebar (status) {
+      console.log(status)
+      hide.value = status
     }
-    return { hideSidebar }
+    return { hideSidebar, hide }
   }
 }
 </script>
@@ -25,12 +32,18 @@ export default {
 .sidebar {
   position: absolute;
   top: 0;
-  left: 0;
   bottom: 0;
   display: flex;
   flex-direction: column;
   background-color: $App_sidebarBgColor;
   width: 15vw;
+  transition: left 0.4s linear 0s;
+  &--hide {
+    left: -15vw;
+  }
+  &--show {
+    left: 0vw;
+  }
   &__title {
     display: flex;
     flex-direction: column;
@@ -61,10 +74,15 @@ export default {
   }
 }
 
-@media (max-width: 375px) {
+@media (max-width: 414px) {
   .sidebar {
-    z-index: 9999;
-    width: 85vw;
+    width: 75vw;
+    &--hide {
+      left: -75vw;
+    }
+    &--show {
+      left: 0vw;
+    }
     &__title {
       height: 18vw;
     }

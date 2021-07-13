@@ -15,10 +15,9 @@ export default {
   setup (props, context) {
     // 與側邊攔組件溝通
     const childSidebar = ref()
-    function hideSidebar () {
-      console.log('hideSidebar main')
+    function hideSidebar (toHide) {
       // 呼叫側邊欄隱藏自己
-      childSidebar.value.hideSidebar()
+      childSidebar.value.hideSidebar(toHide)
     }
     return { childSidebar, hideSidebar }
   }
@@ -32,5 +31,6 @@ export default {
   bottom: 0;
   left: 0;
   right: 0;
+  overflow: hidden;
 }
 </style>
