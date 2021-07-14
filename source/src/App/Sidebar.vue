@@ -5,7 +5,7 @@
       'sidebar--show': !hide,
     }">
     <div class='sidebar__title'>
-      <span class='sidebar__title__bold'>Ming's Storage</span><br />
+      <span class='sidebar__title__bold'>Ming's Storage</span>
       <span class='sidebar__title__thin'>程序記憶</span>
     </div>
     <div class='sidebar__divider'></div>
@@ -37,7 +37,7 @@ export default {
   flex-direction: column;
   background-color: $App_sidebarBgColor;
   width: 15vw;
-  transition: left 0.4s linear 0s;
+  transition: left $transition_time linear 0s;
   &--hide {
     left: -15vw;
   }
@@ -56,7 +56,9 @@ export default {
     height: 6vw;
     &__bold {
       font-size: 1.5vw;
+      font-weight: bold;
       color: $App_sidebar_titleColor;
+      margin-bottom: 0.5vw;
     }
     &__thin {
       font-size: 1vw;
@@ -74,17 +76,71 @@ export default {
   }
 }
 
-@media (max-width: 414px) {
+@media (max-width: 1200px) {
   .sidebar {
-    width: 75vw;
+    width: 30vw;
     &--hide {
-      left: -75vw;
+      left: -30vw;
+    }
+    &--show {
+      left: 0vw;
+    }
+    &__title {
+      height: 9vw;
+      &__bold {
+        font-size: 2.3vw;
+      }
+      &__thin {
+        font-size: 1.5vw;
+      }
+    }
+    &__divider {
+      top: 9vw;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 30vw;
+    &--hide {
+      left: -30vw;
+    }
+    &--show {
+      left: 0vw;
+    }
+    &__title {
+      height: 12vw;
+      &__bold {
+        font-size: 3vw;
+      }
+      &__thin {
+        font-size: 2vw;
+      }
+    }
+    &__divider {
+      top: 12vw;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .sidebar {
+    width: 50vw;
+    &--hide {
+      left: -50vw;
     }
     &--show {
       left: 0vw;
     }
     &__title {
       height: 18vw;
+      &__bold {
+        font-size: 4.5vw;
+      }
+      &__thin {
+        font-size: 3vw;
+      }
     }
     &__divider {
       top: 18vw;

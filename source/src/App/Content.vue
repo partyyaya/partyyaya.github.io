@@ -12,7 +12,7 @@
         'content__title__button--noActive': isSidebarHidden
         }"
       @click="hideSidebar"
-      >≡</button>
+      >&#8801;</button>
       <span class="content__title__bold">Ming's Storage</span>
       <span class="content__title__thin">&nbsp;&nbsp;程序記憶</span>
     </div>
@@ -48,7 +48,7 @@ export default {
   flex-direction: column;
   background-color: $App_content_bgColor;
   width: 100vw;
-  transition: left 0.4s linear 0s;
+  transition: left $transition_time linear 0s;
   &--toRight {
     left: 15vw;
   }
@@ -69,30 +69,31 @@ export default {
       left: 2vw;
       width: 2.5vw;
       height: 2vw;
-      border: 0;
-      border-radius: 20%;
       font-size: 2vw;
-      font-weight: bold;
+      border-radius: 15%;
+      color: $App_content_button_fontColor;
       cursor: pointer;
-      transition: background-color 0.4s linear 0s;
+      transition: background-color $transition_time linear 0s;
       &--active {
         background-color: $App_content_button_active_bgColor;
-        color: $App_content_button_active_fontColor;
       }
       &--noActive {
         background-color: $App_content_button_noActive_bgColor;
-        color: $App_content_button_noActive_fontColor;
       }
     }
     &__bold {
-      font-size: 1.2vw;
+      position: relative;
+      left: -16vw;
       color: $App_content_fontColor;
+      font-size: 1.5vw;
       font-weight: bold;
     }
     &__thin {
+      position: relative;
+      left: -16vw;
       display: flex;
       padding-top: 0.3vw;
-      font-size: 0.8vw;
+      font-size: 1vw;
       color: $App_content_fontColor_thin;
     }
   }
@@ -115,19 +116,92 @@ export default {
   }
 }
 
-@media (max-width: 414px) {
+@media (max-width: 1200px) {
   .content {
     &--toRight {
-      left: 75vw;
+      left: 30vw;
     }
     &__title {
-      height: 10vw;
+      height: 5.3vw;
+      &__button {
+        left: 3vw;
+        width: 3.8vw;
+        height: 3vw;
+        font-size: 3.5vw;
+      }
+      &__bold {
+        left: -7.5vw;
+        font-size: 2.3vw;
+      }
+      &__thin {
+        display: none;
+      }
     }
     &__divider {
-      top: 10vw;
+      top: 5.3vw;
     }
     &__body {
-      top: 10.1vw;
+      top: 5.4vw;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .content {
+    &--toRight {
+      left: 30vw;
+    }
+    &__title {
+      height: 7vw;
+      &__button {
+        left: 4vw;
+        width: 5vw;
+        height: 4vw;
+        font-size: 5vw;
+      }
+      &__bold {
+        left: -6vw;
+        font-size: 3vw;
+      }
+      &__thin {
+        display: none;
+      }
+    }
+    &__divider {
+      top: 7vw;
+    }
+    &__body {
+      top: 7.1vw;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .content {
+    &--toRight {
+      left: 50vw;
+    }
+    &__title {
+      height: 10.5vw;
+      &__button {
+        left: 6vw;
+        width: 7.5vw;
+        height: 6vw;
+        font-size: 6vw;
+      }
+      &__bold {
+        left: -4vw;
+        font-size: 4.5vw;
+      }
+      &__thin {
+        display: none;
+      }
+    }
+    &__divider {
+      top: 10.5vw;
+    }
+    &__body {
+      top: 10.6vw;
     }
   }
 }
