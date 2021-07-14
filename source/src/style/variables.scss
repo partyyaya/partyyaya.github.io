@@ -1,11 +1,14 @@
-$transition_time: 300ms;
-$App_sidebarBgColor: #898989;
-$App_sidebar_titleColor:rgba(255, 255, 255, 0.8);
+$App_frame_transition_time: 200ms;
+$App_frame_transition_delay_time: 100ms;
+$App_sidebarBgColor: #707070;
+$App_sidebar_titleColor:rgba(255, 255, 255, 0.7);
 $App_sidebar_dividerColor:rgba(255, 255, 255, 0.15);
+$App_sidebar_body_fontColor:#FFFFFF;
+$App_sidebar_body_link_bgColor:rgba(255, 255, 255, 0.1);
 $App_content_bgColor: #F0F0F0;
 $App_content_fontColor: #757575;
 $App_content_fontColor_thin: #969696;
 $App_content_dividerColor: #E4E4E4;
-$App_content_button_active_bgColor: #898989;
+$App_content_button_active_bgColor: #707070;
 $App_content_button_noActive_bgColor: #BDBDBD;
 $App_content_button_fontColor: #F0F0F0;

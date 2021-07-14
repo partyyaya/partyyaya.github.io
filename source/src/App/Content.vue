@@ -48,7 +48,7 @@ export default {
   flex-direction: column;
   background-color: $App_content_bgColor;
   width: 100vw;
-  transition: left $transition_time linear 0s;
+  transition: left $App_frame_transition_time linear $App_frame_transition_delay_time;
   &--toRight {
     left: 15vw;
   }
@@ -73,7 +73,7 @@ export default {
       border-radius: 15%;
       color: $App_content_button_fontColor;
       cursor: pointer;
-      transition: background-color $transition_time linear 0s;
+      transition: background-color $App_frame_transition_time linear $App_frame_transition_delay_time;
       &--active {
         background-color: $App_content_button_active_bgColor;
       }
@@ -83,17 +83,17 @@ export default {
     }
     &__bold {
       position: relative;
-      left: -16vw;
+      left: -15vw;
       color: $App_content_fontColor;
-      font-size: 1.5vw;
+      font-size: 1.3vw;
       font-weight: bold;
     }
     &__thin {
       position: relative;
-      left: -16vw;
+      left: -15vw;
       display: flex;
       padding-top: 0.3vw;
-      font-size: 1vw;
+      font-size: 0.8vw;
       color: $App_content_fontColor_thin;
     }
   }
@@ -139,9 +139,10 @@ export default {
     }
     &__divider {
       top: 5.3vw;
+      height: 0.3vw;
     }
     &__body {
-      top: 5.4vw;
+      top: 5.6vw;
     }
   }
 }
@@ -169,9 +170,10 @@ export default {
     }
     &__divider {
       top: 7vw;
+      height: 0.4vw;
     }
     &__body {
-      top: 7.1vw;
+      top: 7.4vw;
     }
   }
 }
@@ -199,9 +201,10 @@ export default {
     }
     &__divider {
       top: 10.5vw;
+      height: 0.3vw;
     }
     &__body {
-      top: 10.6vw;
+      top: 10.8vw;
     }
   }
 }
