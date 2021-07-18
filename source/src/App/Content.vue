@@ -24,16 +24,21 @@
 </template>
 <script>
 import { ref } from 'vue'
+
 export default {
   name: 'Content',
   setup (props, context) {
     const isSidebarHidden = ref(true)
-    function hideSidebar () {
+    const hideSidebar = () => {
       // 請求父組件隱藏側邊攔
       isSidebarHidden.value = !isSidebarHidden.value
       context.emit('hideSidebar', isSidebarHidden.value)
     }
-    return { hideSidebar, isSidebarHidden }
+    const displayTabContent = (toDisplay) => {
+      // 呼叫側邊欄隱藏自己
+      isSidebarHidden.value = toDisplay
+    }
+    return { isSidebarHidden, hideSidebar, displayTabContent }
   }
 }
 </script>

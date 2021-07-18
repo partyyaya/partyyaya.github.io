@@ -1,7 +1,7 @@
 <template>
   <div class="home">
-    <Sidebar ref="childSidebar"/>
-    <Content @hideSidebar="hideSidebar"/>
+    <Sidebar @displayTabContent="displayTabContent" ref="childSidebar"/>
+    <Content @hideSidebar="hideSidebar" ref="childContent"/>
   </div>
 </template>
 
@@ -9,17 +9,24 @@
 import { ref } from 'vue'
 import Sidebar from './Sidebar'
 import Content from './Content'
+
+// 與側邊攔組件溝通
+const childSidebar = ref()
+const childContent = ref()
+
+const hideSidebar = (toHide) => {
+  // 隱藏側邊欄
+  childSidebar.value.hideSidebar(toHide)
+}
+const displayTabContent = (toDisplay) => {
+  // 顯示側邊攔連結內容
+  childContent.value.displayTabContent(toDisplay)
+}
 export default {
   name: 'App',
   components: { Sidebar, Content },
   setup (props, context) {
-    // 與側邊攔組件溝通
-    const childSidebar = ref()
-    function hideSidebar (toHide) {
-      // 呼叫側邊欄隱藏自己
-      childSidebar.value.hideSidebar(toHide)
-    }
-    return { childSidebar, hideSidebar }
+    return { childSidebar, childContent, hideSidebar, displayTabContent }
   }
 }
 </script>

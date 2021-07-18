@@ -12,7 +12,7 @@
     <div class="sidebar__body">
       <template v-for="(item) in sidebarList" :key="item.text">
         <router-link :to='item.to'>
-          <div class="sidebar__body__link">{{item.text}}</div>
+          <div class="sidebar__body__link" @click="displayTabContent">{{item.text}}</div>
         </router-link>
       </template>
     </div>
@@ -21,25 +21,38 @@
 
 <script>
 import { ref } from 'vue'
+
+const hide = ref(true)
+const sidebarList = [
+  { text: 'Home', to: { name: 'Home' } },
+  { text: 'About', to: { name: 'About' } }
+]
+
+const hideSidebar = (status) => {
+  hide.value = status
+}
+
 export default {
   name: 'Sidebar',
   props: ['currentIndex'],
   setup (props, context) {
-    const hide = ref(true)
-    const sidebarList = [
-      { text: 'Home', to: { name: 'Home' } },
-      { text: 'About', to: { name: 'About' } }
-    ]
-
-    function hideSidebar (status) {
-      hide.value = status
+    const displayTabContent = () => {
+      hide.value = true
+      context.emit('displayTabContent', true)
     }
-    return { hideSidebar, hide, sidebarList }
+    return { hide, sidebarList, hideSidebar, displayTabContent }
   }
 }
 </script>
 <style lang='scss' scoped>
 @import '../style/variables.scss';
+$sidebar_width : 15vw;
+$sidebar_title_height: 6vw;
+$sidebar_title_bold_fontsize: 1.3vw;
+$sidebar_title_thin_fontsize: 0.8vw;
+$sidebar_body_fontsize: 1vw;
+$xl_lg: 2;
+
 .sidebar {
   position: absolute;
   top: 0;
@@ -47,13 +60,13 @@ export default {
   display: flex;
   flex-direction: column;
   background-color: $App_sidebarBgColor;
-  width: 15vw;
+  width: $sidebar_width;
   transition: left $App_frame_transition_time linear $App_frame_transition_delay_time;
   &--hide {
-    left: -15vw;
+    left: -$sidebar_width;
   }
   &--show {
-    left: 0vw;
+    left: 0;
   }
   &__title {
     display: flex;
@@ -64,23 +77,23 @@ export default {
     top: 0;
     left: 0;
     right: 0;
-    height: 6vw;
+    height: $sidebar_title_height;
     &__bold {
-      font-size: 1.3vw;
+      font-size: $sidebar_title_bold_fontsize;
       font-weight: bold;
       color: $App_sidebar_titleColor;
       margin-bottom: 0.5vw;
     }
     &__thin {
       margin-top: 0.3vw;
-      font-size: 0.8vw;
+      font-size: $sidebar_title_thin_fontsize;
       color: $App_sidebar_titleColor;
     }
   }
   &__divider {
     display: flex;
     position: absolute;
-    top: 6vw;
+    top: $sidebar_title_height;
     left: 0;
     right: 0;
     height: 0.1vw;
@@ -88,11 +101,11 @@ export default {
   }
   &__body {
     position: absolute;
-    top: 6.1vw;
+    top: $sidebar_title_height + 0.1;
     left: 0;
     right: 0;
     height: 60vh;
-    font-size: 1vw;
+    font-size: $sidebar_body_fontsize;
     a {
       color: $App_sidebar_body_fontColor;
       :hover {
@@ -110,34 +123,30 @@ export default {
   }
 }
 
-// x1.5
 @media (max-width: 1200px) {
   .sidebar {
-    width: 30vw;
+    width: $sidebar_width * $xl_lg;
     &--hide {
-      left: -30vw;
+      left: -$sidebar_width * $xl_lg;
     }
     &--show {
       left: 0vw;
     }
     &__title {
-      height: 9vw;
+      height: $sidebar_title_height * $xl_lg;
       &__bold {
-        font-size: 2.3vw;
+        font-size: $sidebar_title_bold_fontsize * $xl_lg;
       }
       &__thin {
-        font-size: 1.5vw;
+        font-size: $sidebar_title_thin_fontsize * $xl_lg;
       }
     }
     &__divider {
-      top: 9vw;
+      top: $sidebar_title_height * $xl_lg;
     }
     &__body {
-      top: 9.1vw;
-      font-size: 1.8vw;
-      &__link {
-        height: 4vh;
-      }
+      top: $sidebar_title_height * $xl_lg + 0.1;
+      font-size: $sidebar_body_fontsize * $xl_lg;
     }
   }
 }
