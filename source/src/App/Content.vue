@@ -44,6 +44,19 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "../style/variables.scss";
+$content_title_height: 3.5vw;
+$content_title_button_width: 2.5vw;
+$content_title_button_height: 2vw;
+$content_title_button_fontSize: 2vw;
+$content_title_bold_fontSize: 1.3vw;
+$content_bgColor: #F0F0F0;
+$content_fontColor: #757575;
+$content_fontColor_thin: #969696;
+$content_dividerColor: #E4E4E4;
+$content_button_active_bgColor: #707070;
+$content_button_noActive_bgColor: #BDBDBD;
+$content_button_fontColor: #F0F0F0;
+
 .content {
   position: absolute;
   top: 0;
@@ -51,11 +64,11 @@ export default {
   bottom: 0;
   display: flex;
   flex-direction: column;
-  background-color: $App_content_bgColor;
+  background-color: $content_bgColor;
   width: 100vw;
   transition: left $App_frame_transition_time linear $App_frame_transition_delay_time;
   &--toRight {
-    left: 15vw;
+    left: $App_sidebar_width;
   }
   &__title {
     display: flex;
@@ -65,55 +78,52 @@ export default {
     top: 0;
     left: 0;
     right: 0;
-    height: 3.5vw;
+    height: $content_title_height;
     &__button {
       display: flex;
       justify-content: center;
       align-items: center;
       position: absolute;
-      left: 2vw;
-      width: 2.5vw;
-      height: 2vw;
-      font-size: 2vw;
+      left: 3vw;
+      width: $content_title_button_width;
+      height: $content_title_button_height;
+      font-size: $content_title_button_fontSize;
+      font-weight: bold;
       border-radius: 15%;
-      color: $App_content_button_fontColor;
+      color: $content_button_fontColor;
       cursor: pointer;
       transition: background-color $App_frame_transition_time linear $App_frame_transition_delay_time;
       &--active {
-        background-color: $App_content_button_active_bgColor;
+        background-color: $content_button_active_bgColor;
       }
       &--noActive {
-        background-color: $App_content_button_noActive_bgColor;
+        background-color: $content_button_noActive_bgColor;
       }
     }
     &__bold {
-      position: relative;
-      left: -15vw;
-      color: $App_content_fontColor;
-      font-size: 1.3vw;
+      color: $content_fontColor;
+      font-size: $content_title_bold_fontSize;
       font-weight: bold;
     }
     &__thin {
-      position: relative;
-      left: -15vw;
       display: flex;
-      padding-top: 0.3vw;
+      padding-top: 0.2vw;
       font-size: 0.8vw;
-      color: $App_content_fontColor_thin;
+      color: $content_fontColor_thin;
     }
   }
   &__divider {
     display: flex;
     position: absolute;
-    top: 3.5vw;
+    top: $content_title_height;
     left: 0;
     right: 0;
     height: 0.1vw;
-    background-color: $App_content_dividerColor;
+    background-color: $content_dividerColor;
   }
   &__body {
     position: absolute;
-    top: 3.6vw;
+    top: $content_title_height + 0.1;
     left: 0;
     right: 0;
     bottom: 0;
@@ -124,30 +134,27 @@ export default {
 @media (max-width: 1200px) {
   .content {
     &--toRight {
-      left: 30vw;
+      left: $App_mobile_sidebar_width;
     }
     &__title {
-      height: 5.3vw;
+      height: $content_title_height * $xl_lg;
       &__button {
-        left: 3vw;
-        width: 3.8vw;
-        height: 3vw;
-        font-size: 3.5vw;
+        width: $content_title_button_width * $xl_lg;
+        height: $content_title_button_height * $xl_lg;
+        font-size: $content_title_button_fontSize * $xl_lg;
       }
       &__bold {
-        left: -7.5vw;
-        font-size: 2.3vw;
+        font-size: $content_title_bold_fontSize * $xl_lg;
       }
       &__thin {
         display: none;
       }
     }
     &__divider {
-      top: 5.3vw;
-      height: 0.3vw;
+      top: $content_title_height * $xl_lg;
     }
     &__body {
-      top: 5.6vw;
+      top: $content_title_height * $xl_lg + 0.1;
     }
   }
 }
@@ -155,30 +162,27 @@ export default {
 @media (max-width: 768px) {
   .content {
     &--toRight {
-      left: 30vw;
+      left: $App_mobile_sidebar_width;
     }
     &__title {
-      height: 7vw;
+      height: $content_title_height * $xl_md;
       &__button {
-        left: 4vw;
-        width: 5vw;
-        height: 4vw;
-        font-size: 5vw;
+        width: $content_title_button_width * $xl_md;
+        height: $content_title_button_height * $xl_md;
+        font-size: $content_title_button_fontSize * $xl_md;
       }
       &__bold {
-        left: -6vw;
-        font-size: 3vw;
+        font-size: $content_title_bold_fontSize * $xl_md;
       }
       &__thin {
         display: none;
       }
     }
     &__divider {
-      top: 7vw;
-      height: 0.4vw;
+      top: $content_title_height * $xl_md;
     }
     &__body {
-      top: 7.4vw;
+      top: $content_title_height * $xl_md + 0.1;
     }
   }
 }
@@ -186,30 +190,27 @@ export default {
 @media (max-width: 576px) {
   .content {
     &--toRight {
-      left: 50vw;
+      left: $App_mobile_xs_sidebar_width;
     }
     &__title {
-      height: 10.5vw;
+      height: $content_title_height * $xl_xs;
       &__button {
-        left: 6vw;
-        width: 7.5vw;
-        height: 6vw;
-        font-size: 6vw;
+        width: $content_title_button_width * $xl_xs;
+        height: $content_title_button_height * $xl_xs;
+        font-size: $content_title_button_fontSize * $xl_xs;
       }
       &__bold {
-        left: -4vw;
-        font-size: 4.5vw;
+        font-size: $content_title_bold_fontSize * $xl_xs;
       }
       &__thin {
         display: none;
       }
     }
     &__divider {
-      top: 10.5vw;
-      height: 0.3vw;
+      top: $content_title_height * $xl_xs;
     }
     &__body {
-      top: 10.8vw;
+      top: $content_title_height * $xl_xs + 0.1;
     }
   }
 }
