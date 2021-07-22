@@ -3,7 +3,8 @@
   :class="{
     'content': true,
     'content--toRight': !isSidebarHidden
-    }">
+    }"
+    @click="hideSidebar">
     <div class="content__title">
       <button
       :class="{
@@ -11,7 +12,7 @@
         'content__title__button--active': !isSidebarHidden,
         'content__title__button--noActive': isSidebarHidden
         }"
-      @click="hideSidebar"
+      @click.stop="switchSidebar"
       >&#8801;</button>
       <span class="content__title__bold">Ming's Storage</span>
       <span class="content__title__thin">&nbsp;&nbsp;程序記憶</span>
@@ -29,16 +30,18 @@ export default {
   name: 'Content',
   setup (props, context) {
     const isSidebarHidden = ref(true)
-    const hideSidebar = () => {
-      // 請求父組件隱藏側邊攔
+    const switchSidebar = () => {
       isSidebarHidden.value = !isSidebarHidden.value
-      context.emit('hideSidebar', isSidebarHidden.value)
+      context.emit('switchSidebar', isSidebarHidden.value)
+    }
+    const hideSidebar = () => {
+      isSidebarHidden.value = true
+      context.emit('switchSidebar', isSidebarHidden.value)
     }
     const displayTabContent = (toDisplay) => {
-      // 呼叫側邊欄隱藏自己
       isSidebarHidden.value = toDisplay
     }
-    return { isSidebarHidden, hideSidebar, displayTabContent }
+    return { isSidebarHidden, switchSidebar, hideSidebar, displayTabContent }
   }
 }
 </script>

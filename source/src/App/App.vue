@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <Sidebar @displayTabContent="displayTabContent" ref="childSidebar"/>
-    <Content @hideSidebar="hideSidebar" ref="childContent"/>
+    <Content @switchSidebar="switchSidebar" ref="childContent"/>
   </div>
 </template>
 
@@ -14,9 +14,9 @@ import Content from './Content'
 const childSidebar = ref()
 const childContent = ref()
 
-const hideSidebar = (toHide) => {
+const switchSidebar = (status) => {
   // 隱藏側邊欄
-  childSidebar.value.hideSidebar(toHide)
+  childSidebar.value.switchSidebar(status)
 }
 const displayTabContent = (toDisplay) => {
   // 顯示側邊攔連結內容
@@ -26,7 +26,7 @@ export default {
   name: 'App',
   components: { Sidebar, Content },
   setup (props, context) {
-    return { childSidebar, childContent, hideSidebar, displayTabContent }
+    return { childSidebar, childContent, switchSidebar, displayTabContent }
   }
 }
 </script>

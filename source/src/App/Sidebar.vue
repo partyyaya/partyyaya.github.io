@@ -28,7 +28,7 @@ const sidebarList = [
   { text: 'About', to: { name: 'About' } }
 ]
 
-const hideSidebar = (status) => {
+const switchSidebar = (status) => {
   hide.value = status
 }
 
@@ -40,7 +40,7 @@ export default {
       hide.value = true
       context.emit('displayTabContent', true)
     }
-    return { hide, sidebarList, hideSidebar, displayTabContent }
+    return { hide, sidebarList, switchSidebar, displayTabContent }
   }
 }
 </script>
