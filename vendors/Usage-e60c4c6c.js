@@ -1,4 +1,4 @@
-import{m as _}from"./markdown-it-75be01fa.js";import{H as w}from"./highlight.js-867ee1b1.js";import{_ as k,L as v,t as n,s as h,u as y}from"../js/index-9e5a4999.js";import{a as e,o as b,j as C,e as o,f as u,k as L,l,m as c,q as x,F as P}from"./@vue-6bb656f0.js";import"./clipboard-3a281e2a.js";import"./entities-96bc23f9.js";import"./uc.micro-174787a3.js";import"./mdurl-4b1f5cdc.js";import"./linkify-it-59decb82.js";import"./vue-router-ec6d6ff4.js";/* empty css                      */const j=`## Page technology usage
+import{m as _}from"./markdown-it-75be01fa.js";import{H as w}from"./highlight.js-867ee1b1.js";import{_ as k,L as v,t as n,s as h,u as y}from"../js/index-3fb62596.js";import{a as e,o as b,j as C,e as o,f as u,k as L,l,m as c,q as x,F as P}from"./@vue-6bb656f0.js";import"./clipboard-3a281e2a.js";import"./entities-96bc23f9.js";import"./uc.micro-174787a3.js";import"./mdurl-4b1f5cdc.js";import"./linkify-it-59decb82.js";import"./vue-router-ec6d6ff4.js";/* empty css                      */const j=`## Page technology usage
 
 ### Vue.js
 - [Vue.js](https://vuejs.org/)
