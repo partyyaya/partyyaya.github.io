@@ -1,1 +1,0 @@
-import{_ as e}from"../js/index-9e761f2f.js";import{A as t,k as r,D as c}from"./@vue-cf44d510.js";import"./vue-i18n-971101a6.js";import"./@intlify-0b15452e.js";import"./vue-router-4a7e15c5.js";/* empty css                      */const n={name:"Select"};function p(s,a,m,_,i,f){const o=t("router-view");return r(),c(o)}const x=e(n,[["render",p]]);export{x as default};
