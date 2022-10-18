@@ -21,7 +21,7 @@ const e=`<span style="font-size: 32px; font-weight: 600;">About me</span>
 | Programming languages | HTML\u3001CSS\u3001SASS/SCSS\u3001JavaSscript\u3001TypeScript\u3001Java|
 | Web development | Node.js\u3001Vue.js\u3001Koa.js\u3001Babel\u3001Webpack\u3001Vite\u3001Axios |
 | Database | MySQL\u3001SQL Server\u3001SQLite\u3001Oracle Database |
-| Operating system | Windows\u3001Linux(Ubuntu\u3001Ubuntu Server)\u3001Android |
+| Operating system | Windows\u3001Linux(Ubuntu\u3001Ubuntu Server)\u3001Android\u3001MacOS |
 | Git Platform | Github\u3001Gitlab\u3001Gitea |
 | Development Tools | NPM\u3001PNPM\u3001Yarn\u3001Git\u3001Nginx\u3001VSCode\u3001Android Studio |
 `;export{e as default};
