@@ -143,7 +143,8 @@ const n=`<span style="font-size: 32px; font-weight: 600;">JS Class</span>
   }
 
   let person = new Person();
-  person.personName = "ming";
+  person.name = "ming";// setting name
+  console.log(person.name);// getting name
   console.log(person.personName);
   \`\`\`
 

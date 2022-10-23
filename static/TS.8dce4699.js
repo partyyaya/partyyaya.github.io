@@ -1,30 +1,7 @@
-const n=`## Typescript \u7B46\u8A18
-<a id="user-content-top"></a>
+const n=`<span style="font-size: 32px; font-weight: 600;">TS \u7C21\u6613\u7B46\u8A18</span>
 
-### \u76EE\u9304
-<details open>
-<summary style="cursor: pointer;">&nbsp;\u76EE\u9304\u6E05\u55AE </summary>
-
-- [\u5B89\u88DD\u958B\u767C\u74B0\u5883](#user-content-install)
-- [\u57FA\u672C\u6578\u64DA\u985E\u578B](#user-content-basic-type)
-- [Array(\u6578\u7D44) \u8207 Tuple(\u5143\u7D44)](#user-content-array-tuple)
-- [Interface \u63A5\u53E3](#user-content-interface)
-- [Function \u51FD\u6578](#user-content-function)
-- [\u985E\u578B\u63A8\u8AD6\u3001\u806F\u5408\u985E\u578B\u3001\u985E\u578B\u65B7\u8A00](#user-content-type-inference-union-assertions)
-- [Class \u985E](#user-content-class)
-- [Class \u5BE6\u73FE Interface \u65B9\u6CD5](#user-content-class-interface)
-- [Enums \u679A\u8209](#user-content-enums)
-- [Generics \u6CDB\u578B](#user-content-generics)
-- [Type Aliases \u985E\u578B\u5225\u540D](#user-content-type-aliases)
-- [\u8072\u660E\u6587\u4EF6](#user-content-declaration-files)
-- [\u5167\u7F6E\u5C0D\u8C61](#user-content-built-in-objects)
-
-</details>
-
-<hr id="user-content-install" style="height: 4px;">
-
-#### <a href="#user-content-top" >\u5B89\u88DD\u958B\u767C\u74B0\u5883</a>
-#### \u5B89\u88DD \`\`\`nvm\`\`\`
+## \u5B89\u88DD\u958B\u767C\u74B0\u5883
+### \u5B89\u88DD nvm
 - \u7528\u9014\uFF1A\`\`\`nvm\`\`\` \u53EF\u5207\u63DB \`\`\`Node.js\`\`\` \u7248\u672C\u74B0\u5883\uFF0C\u4EE5\u65B9\u4FBF\u5404\u5834\u5408\u958B\u767C
 - \u82E5\u5148\u524D\u6709\u5B89\u88DD \`\`\`Node.js\`\`\` \u6703\u8A62\u554F\u662F\u5426\u4E00\u8D77\u7BA1\u7406\u8A72\u7248\u672C
 - [Windows \u5B89\u88DD](https://github.com/coreybutler/nvm-windows/releases)
@@ -37,17 +14,14 @@ const n=`## Typescript \u7B46\u8A18
   - \u5207\u63DB\u5230\u7279\u5B9A \`\`\`Node.js\`\`\` \u7248\u672C(\u5DF2\u5B89\u88DD\u7684\u7248\u672C)\uFF1A\`\`\`nvm use v\u7248\u672C\u865F\`\`\`
     - \u5FC5\u9808\u4F7F\u7528\u7CFB\u7D71\u7BA1\u7406\u54E1\u57F7\u884C
 
-#### \u5B89\u88DD \`\`\`Typescript\`\`\`
+### \u5B89\u88DD Typescript
 - \u5B89\u88DD\u5168\u5C40\u74B0\u5883\uFF1A\`\`\`npm install -g typescript\`\`\`
 - \u6AA2\u67E5\u662F\u5426\u5DF2\u5B89\u88DD\uFF1A\`\`\`tsc -v\`\`\`
 - \u7522\u751F\u521D\u59CB\u8A2D\u5B9A\u6A94\uFF1A\`\`\`tsc --init\`\`\`
   - \u8A2D\u5B9A\u6A94\u5167\u53EF\u4EE5\u8A3B\u91CB\uFF0C\u4E26\u5305\u542B\u6240\u6709\u8A2D\u5B9A\u89E3\u91CB
 - \u7DE8\u8B6F\u6587\u4EF6\uFF1A\`\`\`tsc fileName.ts\`\`\`
 
-
-<hr id="user-content-basic-type" style="height: 2px;">
-
-#### <a href="#user-content-top" >\u57FA\u672C\u6578\u64DA\u985E\u578B</a>
+## \u57FA\u672C\u6578\u64DA\u985E\u578B
 - [\u6587\u6A94\u7DB2\u5740](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html)
 - \u57FA\u672C\u985E\u578B\u6709\u4EE5\u4E0B\u5E7E\u7A2E\uFF1A
   - Boolean
@@ -60,17 +34,13 @@ const n=`## Typescript \u7B46\u8A18
   - Any(\u5728\u672A\u78BA\u5B9A\u6578\u64DA\u985E\u578B\u6642\u53EF\u8A2D\u5B9A Any:\u6240\u6709\u985E\u578B)
 - \u5BA3\u544A\u65B9\u5F0F\uFF1A\`\`\`let test: boolean = true;\`\`\`
 
-<hr id="user-content-array-tuple" style="height: 2px;">
-
-#### <a href="#user-content-top" >Array(\u6578\u7D44) \u8207 Tuple(\u5143\u7D44)</a>
+## Array \u6578\u7D44 \u8207 Tuple \u5143\u7D44
 - Array \u5BA3\u544A\u70BA\u56FA\u5B9A\u4E00\u7A2E\u6578\u64DA\u985E\u578B\u7684\u6578\u7D44
   - \u5BA3\u544A\u65B9\u5F0F\uFF1A\`\`\`let arrOfNumbers: number[] = [1, 2, 3]\`\`\`
 - Tuple \u70BA\u5728\u540C\u4E00\u6578\u7D44\u5167\u6709\u591A\u7A2E\u6578\u64DA\u985E\u578B
   - \u5BA3\u544A\u65B9\u5F0F\uFF1A\`\`\`let test: [string, number] = ['test', 123]\`\`\`
 
-<hr id="user-content-interface" style="height: 2px;">
-
-#### <a href="#user-content-top" >Interface \u63A5\u53E3</a>
+## Interface \u63A5\u53E3
 - [\u6587\u6A94\u7DB2\u5740](https://www.typescriptlang.org/docs/handbook/2/objects.html)
 - \u5BA3\u544A\u65B9\u5F0F\uFF1A
   \`\`\`typescript
@@ -89,9 +59,7 @@ const n=`## Typescript \u7B46\u8A18
   }
   \`\`\`
 
-<hr id="user-content-function" style="height: 2px;">
-
-#### <a href="#user-content-top" >Function \u51FD\u6578</a>
+## Function \u51FD\u6578
 - [\u6587\u6A94\u7DB2\u5740](https://www.typescriptlang.org/docs/handbook/2/functions.html)
 - \u5BA3\u544A\u65B9\u5F0F\uFF1A
   \`\`\`typescript
@@ -121,9 +89,7 @@ const n=`## Typescript \u7B46\u8A18
   let sum2: typeof sum;
   \`\`\`
 
-<hr id="user-content-type-inference-union-assertions" style="height: 2px;">
-
-#### <a href="#user-content-top" >\u985E\u578B\u63A8\u8AD6\u3001\u806F\u5408\u985E\u578B\u3001\u985E\u578B\u65B7\u8A00</a>
+## \u985E\u578B\u63A8\u8AD6\u3001\u806F\u5408\u985E\u578B\u3001\u985E\u578B\u65B7\u8A00
 - [\u6587\u6A94\u7DB2\u5740](https://www.typescriptlang.org/docs/handbook/type-inference.html)
 - \u5BA3\u544A\u65B9\u5F0F\uFF1A
   \`\`\`typescript
@@ -157,9 +123,7 @@ const n=`## Typescript \u7B46\u8A18
   }
   \`\`\`
 
-<hr id="user-content-class" style="height: 2px;">
-
-#### <a href="#user-content-top" >Class \u985E</a>
+## Class \u985E
 - [Class \u985E](https://www.typescriptlang.org/docs/handbook/2/classes.html)
   - \u9762\u76F8\u5C0D\u8C61\u4E09\u5927\u7279\u9EDE
     - \u5C01\u88DD(Encapsulation)\uFF1A\u96B1\u85CF\u5C0D\u6578\u64DA\u7684\u64CD\u4F5C\uFF0C\u53EA\u66B4\u9732\u5C0D\u5916\u63A5\u53E3\uFF0C\u901A\u904E\u5C0D\u5916\u63D0\u4F9B\u7684\u63A5\u53E3\u4F86\u8A2A\u554F\u8A72\u5C0D\u8C61
@@ -210,9 +174,7 @@ const n=`## Typescript \u7B46\u8A18
   console.log(maomao.run())
   \`\`\`
 
-<hr id="user-content-class-interface" style="height: 2px;">
-
-#### <a href="#user-content-top" >Class \u5BE6\u73FE Interface \u65B9\u6CD5</a>
+## Class \u5BE6\u73FE Interface \u65B9\u6CD5
 - [\u6587\u6A94\u7DB2\u5740](https://www.typescriptlang.org/docs/handbook/2/classes.html#implements-clauses)
 - \u5BA3\u544A\u65B9\u5F0F\uFF1A
   \`\`\`typescript
@@ -240,9 +202,7 @@ const n=`## Typescript \u7B46\u8A18
   }
   \`\`\`
 
-<hr id="user-content-enums" style="height: 2px;">
-
-#### <a href="#user-content-top" >Enums \u679A\u8209</a>
+## Enums \u679A\u8209
 - [\u6587\u6A94\u7DB2\u5740](https://www.typescriptlang.org/docs/handbook/enums.html)
 - \u5BA3\u544A\u65B9\u5F0F\uFF1A
   \`\`\`typescript
@@ -283,9 +243,7 @@ const n=`## Typescript \u7B46\u8A18
   }
   \`\`\`
 
-<hr id="user-content-generics" style="height: 2px;">
-
-#### <a href="#user-content-top" >Generics \u6CDB\u578B</a>
+## Generics \u6CDB\u578B
 - [\u6587\u6A94\u7DB2\u5740](https://www.typescriptlang.org/docs/handbook/2/generics.html)
 - \u57FA\u672C\u4F7F\u7528\uFF1A
   \`\`\`typescript
@@ -340,9 +298,7 @@ const n=`## Typescript \u7B46\u8A18
   let kp2: KeyPair<string, number> = { key: "str", value: 123}
   \`\`\`
 
-<hr id="user-content-type-aliases" style="height: 2px;">
-
-#### <a href="#user-content-top" >Type Aliases \u985E\u578B\u5225\u540D</a>
+## Type Aliases \u985E\u578B\u5225\u540D
 - [\u6587\u6A94\u7DB2\u5740](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#type-aliases)
 - \u5BA3\u544A\u65B9\u5F0F\uFF1A
   \`\`\`typescript
@@ -368,9 +324,7 @@ const n=`## Typescript \u7B46\u8A18
   let toWhere: Directions = 'Up'
   \`\`\`
 
-<hr id="user-content-declaration-files" style="height: 2px;">
-
-#### <a href="#user-content-top" >\u8072\u660E\u6587\u4EF6</a>
+## \u8072\u660E\u6587\u4EF6
 - \u7C21\u4ECB\uFF1A
   \`\`\`txt
   \u82E5 Typescript \u5C08\u6848\u9700\u4F7F\u7528 JS \u7B2C\u4E09\u65B9\u5EAB\u6642\u6703\u7121\u6CD5\u76F4\u63A5\u5F15\u7528\uFF0C
@@ -383,9 +337,7 @@ const n=`## Typescript \u7B46\u8A18
 - [\u5B98\u65B9\u8072\u660E\u6587\u4EF6\u5EAB](https://github.com/DefinitelyTyped/DefinitelyTyped/)
 - [\u5B98\u65B9\u641C\u7D22\u8072\u660E\u5EAB](https://www.typescriptlang.org/dt/search?search=)
 
-<hr id="user-content-built-in-objects" style="height: 2px;">
-
-#### <a href="#user-content-top" >\u5167\u7F6E\u5C0D\u8C61</a>
+## \u5167\u7F6E\u5C0D\u8C61
 - [\u6587\u6A94\u7DB2\u5740](https://github.com/Microsoft/TypeScript/tree/main/src/lib)
 - ECMAScript \u7684\u5185\u7F6E\u5BF9\u8C61
   - Boolean
