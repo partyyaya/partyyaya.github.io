@@ -1,22 +1,6 @@
-const n=`## Axios \u5E38\u7528\u65B9\u5F0F
-<a id="user-content-top"></a>
+const n=`<span style="font-size: 32px; font-weight: 600;">Axios \u7B46\u8A18</span>
 
-### \u76EE\u9304
-<details>
-<summary style="cursor: pointer;">&nbsp;\u76EE\u9304 </summary>
-
-- [\u5275\u5EFA\u5BE6\u4F8B](#user-content-instance)
-- [\u6514\u622A\u5668](#user-content-interceptors)
-- [\u8ACB\u6C42\u65B9\u6CD5 GET](#user-content-request-get)
-- [\u8ACB\u6C42\u65B9\u6CD5 POST](#user-content-request-post)
-- [\u4F7F\u7528\u7BC4\u672C](#user-content-use-template)
-- [\u5168\u5C40\u5C6C\u6027](#user-content-global-property)
-
-</details>
-
-<hr id="user-content-instance" style="height: 4px;">
-
-#### <a href="#user-content-top" >\u5275\u5EFA\u5BE6\u4F8B</a>
+## \u5275\u5EFA\u5BE6\u4F8B
 - \u70BA\u4EC0\u9EBC\u9700\u8981\u5275\u5EFA\u5BE6\u4F8B\uFF1F
   \`\`\`txt
   \u5C07\u5171\u540C\u53C3\u6578\u8A2D\u5B9A\u7D71\u4E00\u5BEB\u5165\u65BC\u5BE6\u4F8B\uFF0C
@@ -39,9 +23,7 @@ const n=`## Axios \u5E38\u7528\u65B9\u5F0F
   })
   \`\`\`
 
-<hr id="user-content-interceptors" style="height: 2px;">
-
-#### <a href="#user-content-top" >\u6514\u622A\u5668</a>
+## \u6514\u622A\u5668
 - \u4EC0\u9EBC\u662F\u6514\u622A\u5668 \`interceptors\`\uFF1F
   \`\`\`txt
   \u65BC\u8ACB\u6C42\u524D\u3001\u97FF\u61C9\u5F8C\u4F7F\u7528\uFF0C
@@ -79,9 +61,7 @@ const n=`## Axios \u5E38\u7528\u65B9\u5F0F
   })
   \`\`\`
 
-<hr id="user-content-request-get" style="height: 2px;">
-
-#### <a href="#user-content-top" >\u8ACB\u6C42\u65B9\u6CD5 GET</a>
+## GET
 - \u4F7F\u7528\u7BC4\u4F8B\uFF1A
   \`\`\`js
   // \u5275\u5EFA\u5BE6\u4F8B
@@ -109,11 +89,8 @@ const n=`## Axios \u5E38\u7528\u65B9\u5F0F
   })
   \`\`\`
 
-
-<hr id="user-content-request-post" style="height: 2px;">
-
-#### <a href="#user-content-top" >\u8ACB\u6C42\u65B9\u6CD5 POST</a>
-- \u76F4\u63A5\u4F7F\u7528\u7BC4\u4F8B\u8AAA\u660E\uFF1A
+## POST
+- \u4F7F\u7528\u7BC4\u4F8B\uFF1A
   \`\`\`js
   // \u5275\u5EFA\u5BE6\u4F8B
   let instance = axios.create(yourOptions);
@@ -128,7 +105,7 @@ const n=`## Axios \u5E38\u7528\u65B9\u5F0F
     })
   }
 
-  // \u4F7F\u7528\u7BC4\u4F8B
+  // \u4F7F\u7528\u65B9\u5F0F
   await post('/test', {
     userId: 123456
   }).then(function (response) {
@@ -146,9 +123,7 @@ const n=`## Axios \u5E38\u7528\u65B9\u5F0F
   await axios.post('/test', params);
   \`\`\`
 
-<hr id="user-content-use-template" style="height: 2px;">
-
-#### <a href="#user-content-top" >\u4F7F\u7528\u7BC4\u672C</a>
+## \u7BC4\u672C\u53C3\u8003
 - \u65B9\u4FBF\u4EE5\u5F8C\u4F7F\u7528\uFF0C\u7D50\u5408\u524D\u9762\u6280\u5DE7\uFF0C\u88FD\u4F5C\u53EF\u7528\u7684\u53C3\u8003\u7BC4\u672C
 - \u53C3\u8003\u7BC4\u672C\uFF1A
   \`\`\`js
@@ -218,9 +193,7 @@ const n=`## Axios \u5E38\u7528\u65B9\u5F0F
   }
   \`\`\`
 
-<hr id="user-content-global-property" style="height: 2px;">
-
-#### <a href="#user-content-top" >\u5168\u5C40\u5C6C\u6027</a>
+## \u5168\u5C40\u5C6C\u6027
 - \u6709\u6642\u5C08\u6848\u6703\u63A1\u53D6\u76F4\u63A5\u8A2D\u5B9A\u5168\u5C40\u5C6C\u6027\uFF0C\u4EE5\u9054\u5230\u64CD\u4F5C\u4E0A\u7684\u65B9\u4FBF\u6027
 - \u4F7F\u7528\u7BC4\u4F8B\uFF1A
   \`\`\`js

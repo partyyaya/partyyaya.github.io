@@ -1,24 +1,6 @@
-const n=`## \u79FB\u52D5\u7AEF\u9069\u914D \u7B46\u8A18
-<a id="user-content-top"></a>
+const n=`<span style="font-size: 32px; font-weight: 600;">\u79FB\u52D5\u7AEF\u9069\u914D</span>
 
-### \u76EE\u9304
-<details open>
-<summary style="cursor: pointer;">&nbsp;\u76EE\u9304\u6E05\u55AE </summary>
-
-- [viewport \u4ECB\u7D39](#user-content-viewport)
-- [\u653E\u5927\u7E2E\u5C0F\u3001dpr\u3001ppi \u4ECB\u7D39](#user-content-scale-dpr-ppi)
-- [\u81EA\u9069\u61C9 \u8207 \u97FF\u61C9\u5F0F \u5E03\u5C40\u4ECB\u7D39](#user-content-adaptive-rwd-concept)
-- [rem \u4ECB\u7D39](#user-content-rem)
-- [vw \u8207 vh \u4ECB\u7D39](#user-content-vw-vh)
-- [@media \u4ECB\u7D39](#user-content-media-query)
-- [\u6AA2\u6E2C\u5E73\u53F0\u8207\u65B7\u9EDE\u65B9\u6CD5](#user-content-detect-platform-breakpoint)
-- [\u624B\u6A5F\u767D\u908A\u4FEE\u6B63\u65B9\u6CD5](#user-content-mobile-white-border)
-
-</details>
-
-<hr id="user-content-viewport" style="height: 4px;">
-
-#### <a href="#user-content-top" >viewport \u4ECB\u7D39</a>
+## viewport
 - \u4EC0\u9EBC\u662F \`viewport\`\uFF1F
   \`\`\`txt
   \u70BA\u700F\u89BD\u5668\u7A97\u53E3\uFF0C\u986F\u793A\u7DB2\u9801\u7684\u5340\u57DF\u3002
@@ -67,9 +49,7 @@ const n=`## \u79FB\u52D5\u7AEF\u9069\u914D \u7B46\u8A18
     - \`maximum-scale\`\uFF1A\u653E\u5927\u7684\u6700\u5927\u6BD4\u4F8B\uFF0C\u9808\u5927\u65BC\u7B49\u65BC \`minimum-scale\` \u8A2D\u7F6E\uFF0C\u53EF\u70BA\u6574\u6578\u6216\u5C0F\u6578
     - \`user-scalable\`\uFF1A\u662F\u5426\u5141\u8A31\u4F7F\u7528\u8005\u624B\u52D5\u7E2E\u653E\u9801\u9762\uFF0C\u9ED8\u8A8D\u503C\u70BA \`yes\`
 
-<hr id="user-content-scale-dpr-ppi" style="height: 2px;">
-
-#### <a href="#user-content-top" >\u653E\u5927\u7E2E\u5C0F\u3001dpr\u3001ppi \u4ECB\u7D39</a>
+## \u653E\u5927\u7E2E\u5C0F\u3001dpr\u3001ppi
 - \u9996\u5148\u9808\u4E86\u89E3\u5169\u7A2E\u50CF\u7D20
   - \u8A2D\u5099\u7269\u7406\u50CF\u7D20\uFF1A\u8A2D\u5099\u87A2\u5E55\u986F\u793A\u7684\u6BCF\u500B\u9EDE
   - \u908F\u8F2F\u50CF\u7D20(CSS\u50CF\u7D20)\uFF1A\u986F\u793A\u756B\u9762\u7D66\u4F7F\u7528\u8005\u7684\u6BCF\u500B\u55AE\u4F4D
@@ -127,9 +107,7 @@ const n=`## \u79FB\u52D5\u7AEF\u9069\u914D \u7B46\u8A18
   scale = 1 / dpr;
   \`\`\`
 
-<hr id="user-content-adaptive-rwd-concept" style="height: 2px;">
-
-#### <a href="#user-content-top" >\u81EA\u9069\u61C9 \u8207 \u97FF\u61C9\u5F0F \u6982\u5FF5\u4ECB\u7D39</a>
+## \u81EA\u9069\u61C9 \u8207 \u97FF\u61C9\u5F0F
 - \u4EC0\u9EBC\u662F \`\u81EA\u9069\u61C9\`\uFF1F
   - \u82F1\u6587\u70BA \`AWD\`\uFF0C\u5168\u7A31\u70BA \`Adaptive Web Design\`
   - \u4EE5 \`\u79FB\u52D5\u7AEF\` \u70BA\u512A\u5148\u8003\u91CF
@@ -149,9 +127,7 @@ const n=`## \u79FB\u52D5\u7AEF\u9069\u914D \u7B46\u8A18
   - \u660E\u78BA\u7684\u8B93\u4F7F\u7528\u8005\u5C08\u6CE8\u65BC\u9054\u6210\u76EE\u6A19
   - \u589E\u5FEB\u7DB2\u9801\u6E32\u67D3\u901F\u5EA6
 
-<hr id="user-content-rem" style="height: 2px;">
-
-#### <a href="#user-content-top" >rem \u4ECB\u7D39</a>
+## rem
 - \u4EC0\u9EBC\u662F \`rem\`\uFF1F
   \`\`\`txt
   \u6307\u76F8\u5C0D\u65BC\u6839\u5143\u7D20(html)\u7684\u5B57\u9AD4\u5927\u5C0F\u7684\u55AE\u4F4D\uFF0C
@@ -227,9 +203,7 @@ const n=`## \u79FB\u52D5\u7AEF\u9069\u914D \u7B46\u8A18
   })();
   \`\`\`
 
-<hr id="user-content-vw-vh" style="height: 2px;">
-
-#### <a href="#user-content-top" >vw \u8207 vh \u4ECB\u7D39</a>
+## vw \u8207 vh
 - \`vw\`\uFF1A\u4EE3\u8868 \`view width\`\uFF0C\u6307\u87A2\u5E55\u53EF\u8996\u7BC4\u570D\u5BEC\u5EA6\u7684\u767E\u5206\u6BD4
 - \`vh\`\uFF1A\u4EE3\u8868 \`view height\`\uFF0C\u6307\u87A2\u5E55\u53EF\u8996\u7BC4\u570D\u9AD8\u5EA6\u7684\u767E\u5206\u6BD4
 - \`vmin\`\uFF1A\u5BEC\u5EA6\u6216\u9AD8\u5EA6\u6700\u5C0F\u503C\u7684\u767E\u5206\u6BD4
@@ -263,9 +237,7 @@ const n=`## \u79FB\u52D5\u7AEF\u9069\u914D \u7B46\u8A18
   }
   \`\`\`
 
-<hr id="user-content-media-query" style="height: 2px;">
-
-#### <a href="#user-content-top" >@media \u4ECB\u7D39</a>
+## @media
 - \u4EC0\u9EBC\u662F \`@media\`\uFF1F
   \`\`\`txt
   @media \u7A31\u70BA \u5A92\u9AD4\u67E5\u8A62\uFF0C
@@ -365,10 +337,8 @@ const n=`## \u79FB\u52D5\u7AEF\u9069\u914D \u7B46\u8A18
       }
     }
     \`\`\`
-  
-<hr id="user-content-detect-platform-breakpoint" style="height: 2px;">
 
-#### <a href="#user-content-top" >\u6AA2\u6E2C\u5E73\u53F0\u8207\u65B7\u9EDE\u65B9\u6CD5</a>
+## \u6AA2\u6E2C\u5E73\u53F0\u8207\u65B7\u9EDE\u65B9\u6CD5
 - \u5224\u65B7\u65B7\u9EDE\u53EF\u53C3\u8003\uFF1A
   - [Bootstrap breakpoints](https://getbootstrap.com/docs/5.0/layout/breakpoints/#available-breakpoints)\uFF0C\u53EF\u641C\u5C0B\uFF1A\`bootstrap media queries breakpoints\`
   - [media queries for common device breakpoints](https://responsivedesign.is/develop/browser-feature-support/media-queries-for-common-device-breakpoints/)
@@ -398,10 +368,8 @@ const n=`## \u79FB\u52D5\u7AEF\u9069\u914D \u7B46\u8A18
       return check;
     };
     \`\`\`
-    
-<hr id="user-content-mobile-white-border" style="height: 2px;">
 
-#### <a href="#user-content-top" >\u624B\u6A5F\u767D\u908A\u4FEE\u6B63\u65B9\u6CD5</a>
+## \u624B\u6A5F\u767D\u908A\u4FEE\u6B63\u65B9\u6CD5
 - \u8D77\u56E0\uFF1A\u5728\u5BE6\u52D9\u4E0A\u7DB2\u9801\u5728\u67D0\u4E9B\u624B\u6A5F\u700F\u89BD\u6642(\u5982\uFF1A\`iphoneX\`)\u6703\u7559\u6709\u4E0A\u4E0B\u767D\u908A
 - \u89E3\u6C7A\u65B9\u6CD5\uFF1A
   - \u4EE5 \`iphone\` \u4F86\u8AAA\uFF0C\`apple\` \u6709\u63D0\u51FA\u5B89\u5168\u908A\u754C\u7684\u6982\u5FF5\uFF0C\u53EF\u53C3\u8003\u4E0B\u9762\u7BC4\u4F8B\uFF1A
