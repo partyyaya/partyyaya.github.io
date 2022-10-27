@@ -406,6 +406,30 @@ sum.call(xiaoming, 3, 5);// call \u9700\u8981\u4F7F\u7528\u9017\u865F
 sum.apply(xiaoming, [3, 5]);// apply \u9700\u8981\u4F7F\u7528\u6578\u7D44
 \`\`\`
 
+## Object.create
+- \u70BA es5 \u65B0\u589E\u7684\u5EFA\u7ACB\u7269\u4EF6\u7684\u65B9\u6CD5
+- \u57FA\u672C\u7528\u6CD5
+  \`\`\`js
+  let test = {
+    a: '111',
+    b: '222'
+  }
+  // \u65B0\u5275\u5EFA\u7684\u7269\u4EF6\u539F\u578B\u6307\u5411\u50B3\u5165\u7269\u4EF6
+  let test2 = Object.create(test)
+  console.log(test2.__proto__ === test) // true
+  \`\`\`
+- \u5BE6\u73FE \`Object.create\`
+  \`\`\`js
+  if (!Object.create) {
+    Object.create = function (obj) {
+      function Obj2 () {}
+      // \u65B0\u5275\u5EFA\u7684\u7269\u4EF6\u539F\u578B\u6307\u5411\u50B3\u5165\u7269\u4EF6
+      Obj2.prototype = obj
+      return new Obj2()
+    }
+  }
+  \`\`\`
+
 ## Object.assign
 - \u5408\u4F75\u5230\u7B2C\u4E00\u500B\u53C2\u6578\u4E2D\uFF0C\u8FD4\u56DE\u5408\u4F75\u5F8C\u7684\u7B2C\u4E00\u500B\u53C3\u6578\u5C0D\u8C61
 - \u8A9E\u6CD5 \`\`\`Object.assign(\u76EE\u6A19\u5C0D\u8C61, \u6E90\u5C0D\u8C611, \u6E90\u5C0D\u8C612,...): \u76EE\u6A19\u5C0D\u8C61\`\`\`
