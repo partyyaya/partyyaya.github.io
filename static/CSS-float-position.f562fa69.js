@@ -267,6 +267,64 @@ p {
 </body>
 \`\`\`
 
+### \u5E38\u7528\u7684\u7D55\u5C0D\u5B9A\u4F4D\u5207\u7248\u65B9\u5F0F
+- \u4EE5\u4E0B\u70BA\u89E3\u6C7A\u7236\u5BB9\u5668\u7D55\u5C0D\u5B9A\u4F4D\u586B\u5145\u9AD8\u5EA6\u554F\u984C
+\`\`\`html
+<style>
+  #parent{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+
+  main {
+    position: absolute;
+    top: /* header \u9AD8\u5EA6 */ ;
+    left: 0;
+    right: 0;
+  }
+
+  footer {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+</style>
+<body>
+  <div id="parent">
+    <header id="header">
+      header
+    </header>
+    <main id="main">
+      main
+    </main>
+    <footer id="footer">
+      footer
+    </footer>
+  </div>
+</body>
+<script>
+const parent = document.getElementById('parent')
+const header = document.getElementById('header')
+const main = document.getElementById('main')
+const footer = document.getElementById('footer')
+const headerHeight = header.offsetHeight
+const mainHeight = main.offsetHeight
+const footerHeight = footer.offsetHeight
+parent.style.height = \`\${headerHeight + mainHeight + footerHeight}px\`
+<\/script>
+\`\`\`
+
 ## BFC
 - BFC \u610F\u601D: Block formatting context \u584A\u7D1A\u683C\u5F0F\u4E0A\u4E0B\u6587
 - \u5B9A\u7FA9: \u70BA\u9801\u9762\u4E0A\u4E00\u500B\u7368\u7ACB\u5BB9\u5668\uFF0C\u5BB9\u5668\u88E1\u9762\u5B50\u5143\u7D20\u4E0D\u6703\u5F71\u97FF\u5230\u5916\u9762\u7684\u5143\u7D20\uFF0C\u53CD\u4E4B\u4EA6\u7136
