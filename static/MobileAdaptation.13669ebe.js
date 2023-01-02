@@ -41,6 +41,9 @@ const n=`<span style="font-size: 32px; font-weight: 600;">\u79FB\u52D5\u7AEF\u90
       const viewWidth = document.documentElement.clientWidth || window.innerWidth;
       \`\`\`
     - \`initial-scale=1.0\`\uFF1A\u6B64\u8A2D\u7F6E\u4F7F \`\u8996\u89BA\u8996\u53E3\` \u7B49\u65BC \`\u7406\u60F3\u8996\u53E3\`
+    - \`user-scalable=no\`\uFF1A\u6B64\u8A2D\u7F6E\u5728\u544A\u8A34\u700F\u89BD\u5668\uFF0C\u4E0D\u9700\u8981\u96D9\u64CA\u7E2E\u653E\u9019\u7A2E\u64CD\u4F5C\uFF0C\u628A300ms\u5EF6\u9072\u95DC\u4E86
+      - \u4F7F\u7528\u6B64\u8A2D\u7F6E\u4FBF\u7121\u9700\u4F7F\u7528 \`fastclick\`
+      - chrome32+\u3001firefox\u3001IE/Edge \u7B49\u4E3B\u6D41\u700F\u89BD\u5668\u5747\u57282014\u5E74-2015\u5E74\u5E74\u505A\u4E86\u8DDF\u9032\uFF0C\u76F8\u7E7C\u4FEE\u5FA9\u4E86\u9019\u500B\u554F\u984C\u3002\u59CB\u4F5C\u4FD1\u8005\u7684iOS,\u57282016\u5E743\u6708\u767C\u5E03\u7684iOS9.3\u4E2D\uFF0C\u4E5F\u4FEE\u5FA9\u4E86\u9019\u500B\u554F\u984C\u3002
   - \u5C6C\u6027\u4ECB\u7D39\uFF1A
     - \`width\`\uFF1A\u8996\u53E3\u7684\u5BEC\u5EA6\uFF0C\u55AE\u4F4D\u70BA\u50CF\u7D20\uFF0C\u53EF\u70BA\u6B63\u6574\u6578\u6216\u8A2D\u5099\u5BEC\u5EA6 \`device-width\`
     - \`height\`\uFF1A\u8996\u53E3\u7684\u9AD8\u5EA6\uFF0C\u55AE\u4F4D\u70BA\u50CF\u7D20\uFF0C\u53EF\u70BA\u6B63\u6574\u6578\u6216\u8A2D\u5099\u9AD8\u5EA6 \`device-height\`
@@ -410,4 +413,52 @@ const n=`<span style="font-size: 32px; font-weight: 600;">\u79FB\u52D5\u7AEF\u90
        }    
      }
     \`\`\`
+
+## meta \u5E38\u7528\u6A19\u7C64\u529F\u80FD
+- \u5E38\u7528 \`meta\` \u914D\u7F6E\u5982\u4E0B\uFF1A
+  \`\`\`html
+  <!-- viewport \u89E3\u91CB\u8ACB\u770B\u4E0A\u9762  -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <!--  \u5176\u9918\u89E3\u91CB\u7686\u5728\u4E0B\u9762  -->
+  <meta content="telephone=no" name="format-detection">
+  <meta content="email=no" name="format-detection">
+  <meta content="address=no" name="format-detection">
+  <!--  Apple \u5C08\u7528  -->
+  <meta content="yes" name="apple-mobile-web-app-capable">
+  <meta content="your_title" name="app-mobile-web-app-title">
+  <meta content="your_title" name="app-mobile-web-app-status-bar-style">
+  <!--  UC \u700F\u89BD\u5668\u5C08\u7528\u5C6C\u6027  -->
+  <!--  \u5F37\u5236\u5168\u5C4F  -->
+  <meta content="yes" name="full-screen">
+  <!--  \u5F37\u5236\u8C4E\u5C4F  -->
+  <meta content="portrait" name="screen-orientation">
+  <!--  \u61C9\u7528\u6A21\u5F0F  -->
+  <meta content="application" name="browsermode">
+  <!--  QQ \u700F\u89BD\u5668\u5C08\u7528\u5C6C\u6027  -->
+  <!--  \u5F37\u5236\u5168\u5C4F  -->
+  <meta content="true" name="x5-fullscreen">
+  <!--  \u5F37\u5236\u8C4E\u5C4F  -->
+  <meta content="portrait" name="x5-orientation">
+  <!--  \u61C9\u7528\u6A21\u5F0F  -->
+  <meta content="app" name="x5-page-mode">
+  \`\`\`
+- \`\`\`html
+  <meta content="telephone=no" name="format-detection">
+  <meta content="email=no" name="format-detection">
+  <meta content="address=no" name="format-detection">
+  \`\`\`
+  - \u7686\u9ED8\u8A8D\u70BA \`yes\`
+  - \u7528\u4F86\u907F\u514D\u7CFB\u7D71\u81EA\u52D5\u5224\u65B7\u662F\u5426\u70BA\u624B\u6A5F\u865F\u78BC(\u81EA\u52D5\u64A5\u865F)\u3001\u4FE1\u7BB1(\u81EA\u52D5\u767C\u9001)\u3001\u5730\u5740(\u8DF3\u8F49\u5730\u5716)
+- \`<meta content="yes" name="apple-mobile-web-app-capable">\`
+  - \u6B64\u6A19\u7C64\u70BA \`iphone\` \`safari\` \u7684\u79C1\u6709 \`meta\` \u6A19\u7C64\uFF0C\u9ED8\u8A8D\u70BA\uFF1A\`no\`
+  - \u529F\u80FD\uFF1A\u522A\u9664\u860B\u679C\u7684\u5DE5\u5177\u6B04\u8207\u83DC\u55AE\u6B04\uFF0C\u4F7F\u7DB2\u9801\u4EE5\u5168\u5C4F\u5E55\u986F\u793A
+  - \u53EF\u4F7F\u7528 \`window.navigator.standalone\` \u6AA2\u6E2C\u860B\u679C\u624B\u6A5F\u662F\u5426\u5168\u5C4F\u986F\u793A(\`true\`)
+- \`<meta content="your_title" name="app-mobile-web-app-title">\`
+  - \`safari\` \u6DFB\u52A0\u81F3\u4E3B\u4ECB\u9762\u7684\u986F\u793A\u6A19\u984C
+- \`<meta content="your_title" name="app-mobile-web-app-status-bar-style">\`
+  - \u6307\u5B9A\u7684 \`iphone\` \u4E2D \`safari\` \u9802\u7AEF\u7684\u72C0\u614B\u689D\u7684\u6A23\u5F0F
+
+## \u53C3\u8003\u8CC7\u6599
+- [meta \u6A19\u7C64](https://zhuanlan.zhihu.com/p/104453816)
+- [\u79FB\u52D5\u958B\u767C\u5C0F\u7D50](https://zhuanlan.zhihu.com/p/51175542)
 `;export{n as default};

@@ -197,7 +197,10 @@ const n=`<span style="font-size: 32px; font-weight: 600;">Vue.js \u57FA\u672C\u4
   \`
   \`\`\`
 - \`\`\`computed\`\`\`\uFF1A\u82E5\u4E00\u500B\u6578\u64DA\u4F9D\u8CF4\u65BC\u5176\u4ED6\u6578\u64DA\uFF0C\u5247\u8A2D\u8A08\u70BA \`\`\`computed\`\`\`\uFF0C\u4E26\u6703\u9032\u884C\u7DE9\u5B58\uFF0C\`data\` \u4E0D\u8B8A\u5247\u4E0D\u6703\u91CD\u65B0\u8A08\u7B97
+  - \u5F9E\u5167\u5230\u5916\uFF1A\u88E1\u9762\u53C3\u6578\u6709\u8B8A\u52D5\uFF0C\u6703\u66F4\u65B0 \`computed\` \u7684\u503C
+  - \`data\` \u8207 \`computed\` \u4E0D\u80FD\u6709\u540C\u540D\u5C6C\u6027\uFF0C\u5426\u5247\u6703\u5831\u932F  
 - \`\`\`watch\`\`\`\uFF1A\u82E5\u9700\u8981\u5728\u67D0\u500B\u6578\u64DA\u8B8A\u5316\u6642\u505A\u4E00\u4E9B\u4E8B\u60C5\uFF0C\u5247\u4F7F\u7528 \`\`\`watch\`\`\` \u4F86\u89C0\u5BDF\u9019\u500B\u6578\u64DA\u8B8A\u5316
+  - \u5F9E\u5916\u5230\u5167\uFF1A\u7576\u503C\u6539\u8B8A\u6642\uFF0C\u57F7\u884C\u5C0D\u61C9\u7684\u51FD\u6578
 - \u7BC4\u4F8B
   \`\`\`js
   const app = Vue.createApp({
@@ -215,6 +218,19 @@ const n=`<span style="font-size: 32px; font-weight: 600;">Vue.js \u57FA\u672C\u4
       // \u7B2C\u4E00\u500B\u53C3\u6578\u662F\u6539\u8B8A\u5F8C\u7684\u503C,\u7B2C\u4E8C\u500B\u662F\u4E0A\u4E00\u6B21\u672A\u6539\u8B8A\u7684\u503C
       price(current, prev) {
         this.newTotal = current * this.count;
+      },
+      // \u82E5\u60F3\u76E3\u807D\u5C0D\u8C61\u5167\u6240\u6709\u5C6C\u6027
+      test: {
+        handler: function(newValue){
+          console.log(newValue.aaa);
+        },
+        deep: true,
+        // \u8981\u6C42\u7ACB\u5373\u57F7\u884C\u4E00\u6B21
+        immediate: true
+      },
+      // \u82E5\u60F3\u76E3\u807D\u5C0D\u8C61\u5167\u55AE\u500B\u5C6C\u6027
+      'test.aaa'(){
+        console.log('ok1')
       }
     },
     computed: {
@@ -627,9 +643,13 @@ const vm = app.mount('#root');
     \`\`\`
   - \u5BE6\u73FE\u5B50\u7D44\u4EF6 \`v-model\`\uFF1A
     \`\`\`html
-    <!-- \u7236\u7D44\u4EF6\u5167\u901A\u904E\u5C6C\u6027\u540D\u5F8C\u52A0.sync\u7684\u65B9\u5F0F\u53BB\u50B3\u905E\u6578\u64DA -->
+    <!-- \u7236\u7D44\u4EF6\u5167 -->
+    <!-- \u901A\u904E\u5C6C\u6027\u540D\u5F8C\u52A0.sync\u7684\u65B9\u5F0F\u53BB\u50B3\u905E\u6578\u64DA -->
+    <!-- \u7B49\u50F9\u65BC <child-model :title="myValue" @update:title="myValue = $event"/> -->
     <child-model :title.sync="myValue" />
-    <!-- \u5B50\u7D44\u4EF6\u63A5\u53D7title\u5F8C\uFF0C\u4F7F\u7528$emit\u53BB\u66F4\u65B0\u7236\u7D44\u4EF6\u50B3\u905E\u904E\u4F86\u7684\u5C6C\u6027\u503C title -->
+  
+    <!-- \u5B50\u7D44\u4EF6\u5167 -->
+    <!-- \u63A5\u53D7title\u5F8C\uFF0C\u4F7F\u7528$emit\u53BB\u66F4\u65B0\u7236\u7D44\u4EF6\u50B3\u905E\u904E\u4F86\u7684\u5C6C\u6027\u503C title -->
     <input :value="title" @input="$emit('update:title', $event.target.value)" />
     \`\`\`
 `;export{n as default};

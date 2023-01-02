@@ -276,6 +276,10 @@ const n=`<span style="font-size: 32px; font-weight: 600;">HTML \u7B46\u8A18</spa
       - height\uFF1A\u5716\u7247\u9AD8\u5EA6
       - \u82E5\u53EA\u586B\u5BEB\u4E00\u500B\u5247\u6309\u539F\u59CB\u6BD4\u4F8B\u7E2E\u653E
     - \u652F\u63F4\uFF1Abmp,gif,jpeg,png(\u91CD\u8981!\u652F\u6301\u900F\u660E\u8207\u534A\u900F\u660E),svg,webp\u5716\u7247\u683C\u5F0F
+- \u66FF\u4EE3\u65B9\u6848\uFF1A\`object\`
+  \`\`\`html
+  <object data="circle1.svg" type="image/svg+xml"></object>
+  \`\`\`
 - \u9032\u968E\u4F7F\u7528\uFF1A[\u97FF\u61C9\u5F0F\u5716\u7247](https://developer.mozilla.org/zh-CN/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images)
   \`\`\`html
   <!--  
