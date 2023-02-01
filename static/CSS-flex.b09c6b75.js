@@ -996,8 +996,8 @@ const i=`<span style="font-size: 32px; font-weight: 600;">CSS Flex \u4F48\u5C40<
     .box {
       display: flex;
     }
-    .box-item {
-      flex-basis: 400px;
+    .basis {
+      flex-basis: 90px;
     }
   </style>
   <body>
@@ -1005,7 +1005,7 @@ const i=`<span style="font-size: 32px; font-weight: 600;">CSS Flex \u4F48\u5C40<
     <div class="box">
       <div class="box-item">1</div>
       <div class="box-item">2</div>
-      <div class="box-item">3</div>
+      <div class="box-item basis">3</div>
     </div>
   </body>
   \`\`\`
@@ -1022,5 +1022,21 @@ const i=`<span style="font-size: 32px; font-weight: 600;">CSS Flex \u4F48\u5C40<
 - \u9ED8\u8A8D\u503C\u70BA \`\`\`auto\`\`\`\uFF0C\u6703\u7E7C\u627F\u5BB9\u5668\u7684 \`\`\`align-items\`\`\` \u5C6C\u6027\uFF0C\u82E5\u7121\u5247\u5C6C\u6027\u9ED8\u8A8D\u70BA \`\`\`stretch\`\`\`
 - \u8207 \`\`\`align-items\`\`\` \u76F8\u540C\u6709\u4E94\u500B\u5C6C\u6027(\u4E0D\u542B \`\`\`auto\`\`\`)\u4E14\u529F\u80FD\u76F8\u540C
   - \`\`\`flex-start\`\`\`\u3001\`\`\`flex-end\`\`\`\u3001\`\`\`center\`\`\`\u3001\`\`\`baseline\`\`\`\u3001\`\`\`stretch\`\`\`
+
+## \u4F7F\u7528\u6848\u4F8B
+### \u6848\u4F8B\u4E00
+- \u4E0A\u65B9\u4FDD\u6301\u539F\u9AD8\u5EA6\uFF0C\u4E0B\u65B9\u81EA\u52D5\u4F38\u7E2E\u4E14\u53EF\u6EFE\u52D5
+- \u4EE3\u78BC\uFF1A
+  \`\`\`html
+  <!--  
+    \u53EA\u79C0\u95DC\u9375\u4EE3\u78BC
+    \u82E5\u4E0B\u65B9\u5BB9\u5668\u6709\u642D\u914D\u5982 better-scroll
+    \u5247\u53EF\u6539\u70BA overflow-y: hidden
+  -->
+  <div style="height: 300px; display: flex; flex-direction: column;">
+    <div style="height: 100px; flex-shrink: 0;">111</div>
+    <div style="flex-shrink: 1; flex-grow: 1; overflow-y: scroll;"></div>
+  </div>
+  \`\`\`
 
 `;export{i as default};

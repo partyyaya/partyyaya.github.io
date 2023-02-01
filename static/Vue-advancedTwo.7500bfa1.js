@@ -735,6 +735,7 @@ const vm = app.mount('#root');
 ## nextTick
 - \`\`\`nextTick\`\`\` \u6703\u5728 \`\`\`DOM\`\`\` \u66F4\u65B0\u6E32\u67D3\u5B8C\u6210\u5F8C\u57F7\u884C
 - \u901A\u5E38\u7528\u65BC \`\`\`DOM\`\`\` \u975E\u540C\u6B65\u66F4\u65B0\u4EE5\u63D0\u5347\u6548\u80FD
+- \`Vue2\` \u6709\u6642\u6703\u6293\u53D6\u4E0D\u5230 \`refs\`\uFF0C\u5EFA\u8B70\u6539\u7528\u751F\u547D\u9031\u671F \`updated\` 
 - \u7BC4\u4F8B
   \`\`\`js
   export default {

@@ -398,6 +398,64 @@ const n=`<span style="font-size: 32px; font-weight: 600;">Vue.js \u57FA\u672C\u4
   <\/script>
   \`\`\`
 
+## CSS Deep Selector
+- \u6709\u6642\u5728\u5C08\u6848\u4E2D \`style\` \u770B\u5230\u6B64\u8A9E\u6CD5 \`::v-deep\`\u3001\`:deep(.xxx)\`
+- \u4E3B\u8981\u65B9\u4FBF\u5B50\u5143\u4EF6\u7E7C\u627F\u7236\u5143\u4EF6\u7684\u6A23\u5F0F
+- \u7BC4\u4F8B\uFF0C\u986F\u793A\u6548\u679C\uFF1A\u9996\u9801\u3001Message \u5167\u5C64\u70BA\u7D05\u8272\uFF0CMessage \u5916\u5C64\u70BA\u85CD\u8272
+  \`\`\`vue
+  <!-- \u7236 -->
+  <template>
+    <div class="home">
+      <span>\u9996\u9801</span>
+      <Message />
+    </div>
+  </template>
+  
+  <script>
+  import Message from "@/components/Message";
+  export default {
+    components: {
+      Message,
+    },
+  };
+  <\/script>
+  <style lang="scss" scoped>
+  span {
+    color: red;
+  }
+
+  // ::v-deep \u524D\u9762\u7A7A\u683C\u53EF\u5BEB\u53EF\u4E0D\u5BEB
+  .home ::v-deep .message {
+    color: red;
+  }
+  /* \u6216\u4F7F\u7528\u6700\u65B0\u5BEB\u6CD5\uFF0C:deep \u524D\u9762\u7A7A\u683C\u53EF\u5BEB\u53EF\u4E0D\u5BEB
+  .home :deep(.message) {
+    color: red;
+  } 
+  */
+  </style>
+  
+  <!-- \u5B50 -->
+  <template>
+    <div>
+      <span>
+        Message \u5916\u5C64
+        <span class="message">Message \u5167\u5C64</span>
+      </span>
+    </div>
+  </template>
+  
+  <script>
+  export default {};
+  <\/script>
+  
+  <style lang="scss" scoped>
+  span {
+    color: blue;
+  }
+  </style>
+  \`\`\`
+
 ## \u689D\u4EF6\u6E32\u67D3
 - \`\`\`v-if\`\`\` \u6703\u6C7A\u5B9A\u8A72\u6A19\u5D4C\u662F\u5426\u5B58\u5728\uFF0C\u82E5\u88E1\u9762\u542B\u5B50\u6A19\u7C64\u5247\u6703\u4E00\u4F75\u5275\u5EFA\u6216\u92B7\u6BC0
 - \`\`\`v-if v-else-if v-else\`\`\` \u6A19\u7C64\u4E4B\u9593\u4E0D\u80FD\u6709\u5176\u4ED6\u6A19\u7C64\u5426\u5247\u62B1\u932F
@@ -641,7 +699,17 @@ const vm = app.mount('#root');
     <!-- \u4E0A\u4E0B\u7B49\u50F9 -->
     <input type="text" :value="name" @input="name = $event.target.value" />
     \`\`\`
-  - \u5BE6\u73FE\u5B50\u7D44\u4EF6 \`v-model\`\uFF1A
+  - \u5BE6\u73FE\u7236\u5B50\u7D44\u4EF6\u901A\u8A0A\uFF0C\u4F7F\u7528 \`v-model\`\uFF1A
+    \`\`\`html
+    <!-- \u7236\u7D44\u4EF6\u5167 -->
+    <!-- test.a \u53EF\u4EE5\u63DB\u6210\u5176\u4ED6\uFF0C\u5982\uFF1AmyValue -->
+    <child-model v-model="test.a" />
+
+    <!-- \u5B50\u7D44\u4EF6\u5167 -->
+    <!-- \u82E5\u975E input\uFF0C\u53EF\u4EE5\u7528 watch \u76E3\u807D\u89F8\u767C -->
+    <input :value="value" @input="$emit('input', $event.target.value)" />
+    \`\`\`
+  - \u5BE6\u73FE\u7236\u5B50\u7D44\u4EF6\u901A\u8A0A\uFF0C\u4F7F\u7528 \`v-bind\`\uFF1A
     \`\`\`html
     <!-- \u7236\u7D44\u4EF6\u5167 -->
     <!-- \u901A\u904E\u5C6C\u6027\u540D\u5F8C\u52A0.sync\u7684\u65B9\u5F0F\u53BB\u50B3\u905E\u6578\u64DA -->

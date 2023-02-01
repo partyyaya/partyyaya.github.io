@@ -60,6 +60,10 @@ const n=`<span style="font-size: 32px; font-weight: 600;">JS \u5176\u4ED6\u7528\
   \`\`\`js
   const { username = 'ZhangSan', age = 0 } = { username: 'test' };
   console.log(username, age);// test 0
+  
+  // \u7D50\u5408\u5225\u540D\u8207\u9ED8\u8A8D\u503C
+  const { username: uname = 'ZhangSan', age = 123 } = { username: 'test' };
+  console.log(uname, age);// test 123
   \`\`\`
 - \u5728\u5DF2\u8072\u660E\u7684\u8B8A\u91CF\u7528\u65BC\u5C0D\u8C61\u7684\u89E3\u69CB\u8CE6\u503C\uFF0C\u5247\u8CE6\u503C\u9700\u5728\u5C0F\u62EC\u865F\u5167\u9032\u884C
   \`\`\`js
@@ -136,8 +140,7 @@ const n=`<span style="font-size: 32px; font-weight: 600;">JS \u5176\u4ED6\u7528\
         \u518D\u5229\u7528\u7B2C2\u9EDE\u8207\u7B2C1\u9EDE\u7279\u6027\u4F7F\u7528\u89E3\u69CB\u8CE6\u503C\u7D66\u4E88\u5C0D\u8C61\u5C6C\u6027\u8207\u9ED8\u8A8D\u503C
     */
     const logUser = 
-    ({ username = 'test', age = 0, sex = 'male' } = {}) =>
-    console.log(username, age, sex);
+    ({ username = 'test', age = 0, sex = 'male' } = {}) => console.log(username, age, sex);
     logUser();// test 0 male
     \`\`\`
 
@@ -656,4 +659,87 @@ const n=`<span style="font-size: 32px; font-weight: 600;">JS \u5176\u4ED6\u7528\
   console.log(s3);// true
   console.log(s4);// Cannot convert a Symbol value to a number
   \`\`\`
+
+## fetch
+- \u70BA\u5168\u57DF\u7684 \`window\` \u7269\u4EF6\uFF0C\u7528\u4F86\u7DB2\u8DEF\u8ACB\u6C42\uFF0C\u4E26\u56DE\u50B3 \`promise\`
+- [\u8A73\u7D30\u8ACB\u770B MDN](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)\uFF0C\u4E3B\u8981 \`response\` \u7684\u5E7E\u7A2E\u65B9\u6CD5\uFF1A
+  - \`response.json()\`\uFF1A\u628A\u8CC7\u6599\u8F49\u6210JSON\u683C\u5F0F
+  - \`response.text()\`\uFF1A\u628A\u8CC7\u6599\u8F49\u6210text\u683C\u5F0F(\u8B8A\u6210\u7D14\u5B57\u4E32)
+  - \`response.blob()\`\uFF1A\u628A\u8CC7\u6599\u8F49\u6210Blob\u7269\u4EF6
+  - \`response.formData()\`\uFF1A\u628A\u8CC7\u6599\u8F49\u6210FormData\u7269\u4EF6
+  - \`response.arrayBuffer()\`\uFF1A\u628A\u8CC7\u6599\u8F49\u6210\u4E8C\u9032\u5236\u6578\u7D44
+- \u512A\u52E2
+  - \u70BA\u539F\u751F \`API\`\uFF0C\u6709\u672A\u4F86\u767C\u5C55\u6027
+  - \u53EF\u4EE5\u914D\u7F6E\u662F\u5426\u651C\u5E36 \`cookie\`
+  - \u53EF\u5728 \`service worker\` \u4E2D\u4F7F\u7528 
+- \u52A3\u52E2
+  - \`fetch\` \u4E0D\u652F\u63F4\u8001\u820A\u700F\u89BD\u5668
+  - \`fetch\` \u6C92\u6709\u6514\u622A\u5668 \`interceptors\`
+  - \u6C92\u6709 \`progress\` \u4E8B\u4EF6
+  - \u76F8\u5C0D \`axios\`\uFF0C\u8F03\u4E0D\u666E\u904D\u4F7F\u7528
+- \u5BE6\u6230\u4E00\uFF1A\u5E36\u6709 \`token\` \u7684 \`POST\` \u8ACB\u6C42
+  \`\`\`js
+  const uuid = 'uuid'
+  const token = 'token'
+  const url = \`https://domain/api/\${uuid}/product\`
+  let headers = {
+      "Content-Type": "application/json",
+      "Accept": "application/json",
+      "Authorization": \`Bearer \${token}\`,
+  }
+  let body = {
+    "title": "title1",
+    "category": "category1",
+  }
+  // \u9810\u8A2D\u70BA GET \u8ACB\u6C42
+  fetch(url, {
+    method: "POST",
+    headers: headers,
+    // \u5C07\u5C0D\u8C61\u8F49\u70BA\u5B57\u4E32\uFF0C\u907F\u514D\u8B8A\u6210[object Object]
+    body: JSON.stringify(body)
+  })
+  .then(response => response.json())
+  .then(json => console.log(json));
+  \`\`\`
+- \u5BE6\u6230\u4E8C\uFF1A\u6AA2\u6E2C\u7DB2\u8DEF\u8207\u4F3A\u670D\u5668
+  - \u529F\u7528\uFF1A\u5224\u65B7 \`\u4F7F\u7528\u8005\u7121\u7DB2\u8DEF\` \u9084\u662F \`\u4F3A\u670D\u5668\u7121\u53CD\u61C9\`
+  - \u7BC4\u4F8B\uFF1A\u53EF\u81EA\u884C\u8F49\u63DB\u6210 \`axios\`
+    \`\`\`js
+    /*
+      \u5224\u65B7\u9806\u5E8F\uFF1A
+      \u4F3A\u670D\u5668(\u82E5\u6709\u5247\u76F4\u63A5\u8FD4\u56DE)
+      > \u6E2C\u8A66\u7DB2\u8DEF(O) > \u8FD4\u56DE\u7DAD\u8B77\u4E2D\u4E26\u56DE\u5831
+      > \u6E2C\u8A66\u7DB2\u8DEF(X) > \u901A\u77E5\u4F7F\u7528\u8005\u7121\u7DB2\u8DEF\u9023\u7DDA
+    */
+    const Ajax = async (url, options, onSuccess = () => {}, onError = () => {}, timeout, testNetwork = false) => {
+      const controller = new AbortController()
+      setTimeout(() => {
+        controller.abort()
+      }, timeout);
+
+      // \u7576\u547C\u53EB abortController.abort \u6642\uFF0Cfetch \u63A5\u6536\u5230 signal \u6642\u8ACB\u6C42\u9084\u6C92\u5B8C\u6210\uFF0C\u8ACB\u6C42\u5C31\u6703\u88AB\u53D6\u6D88\u3002
+      let config = { ...options, signal: controller.signal }
+      await fetch(url, config)
+      .then((result) => {
+          onSuccess(result)
+      })
+      .catch(async e => {
+        // \u82E5\u767C\u751F\u932F\u8AA4\uFF0C\u5247\u6AA2\u6E2C\u662F\u5426\u9700\u8981\u5224\u65B7\u7DB2\u8DEF
+        if (testNetwork) {
+          await Ajax('https://google.com', {
+            method: 'GET',
+            mode: 'no-cors',
+          }, onError, () => console.log('network error'), timeout)
+        } else {
+          onError()
+        }
+      })
+    }
+
+    // \u4F7F\u7528\u7BC4\u4F8B
+    const getData = async () => {
+      await Ajax('https://test:3000/posts', null, () => console.log('ok!!'), () => console.log('server error'), 3000, true)
+    }
+    await getData()
+    \`\`\`
 `;export{n as default};

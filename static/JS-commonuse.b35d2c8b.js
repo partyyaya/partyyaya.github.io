@@ -107,4 +107,86 @@ const n=`<span style="font-size: 32px; font-weight: 600;">JS \u5E38\u7528\u7528\
   debugger
   console.log(222)
   \`\`\`
+  
+## \u81EA\u88FD getType \u51FD\u6578
+- \u529F\u7528\uFF1A\u53EF\u66F4\u52A0\u7CBE\u78BA\u7684\u5224\u65B7\u6578\u64DA\u985E\u578B
+- \u5E38\u898B\u7684\u5224\u65B7\u65B9\u6CD5
+  - \`typeof\`\uFF1A\u53EA\u80FD\u5224\u65B7\u503C\u985E\u578B\uFF0C\u5176\u4ED6\u70BA \`function\`\u3001\`object\`
+  - \`instanceof\`\uFF1A\u9700\u8981\u5169\u500B\u53C3\u6578\u5224\u65B7\u6B63\u78BA\u8207\u5426\uFF0C\u975E\u7372\u53D6\u985E\u578B
+- \u539F\u7406\uFF1A
+  - \u4F7F\u7528 \`Object.prototype.toString.call(x)\`
+  - \u4E0D\u80FD\u76F4\u63A5\u8ABF\u7528 \`x.toString()\`\uFF0C\u8A72\u51FD\u6578\u53EF\u80FD\u88AB\u6539\u9020
+  - \u4E0D\u80FD\u4F7F\u7528\u5E38\u898B\u5224\u65B7\u65B9\u6CD5\uFF0C\u53EF\u80FD\u6703\u907A\u6F0F\u65B0\u985E\u578B\uFF0C\u7F3A\u4E4F\u5B8C\u6574\u6027
+- \u4EE3\u78BC\uFF1A
+  \`\`\`js
+  function getType(x: any): string{
+    const originType = Object.prototype.toString.call(x)// [object type]
+    const spaceIndex = originType.indexOf(' ')
+    const type = originType.slice(spaceIndex+1, -1)
+    return type.toLowerCase()
+  }
+  \`\`\`
+- \u6E2C\u8A66\uFF1A
+  \`\`\`js
+  describe('\u7372\u53D6\u8A73\u7D30\u7684\u6578\u64DA\u985E\u578B', () => {
+    it('null', () => {
+      expect(getType(null)).toBe('null')
+    })
+    it('undefined', () => {
+      expect(getType(undefined)).toBe('undefined')
+    })
+    it('number', () => {
+      expect(getType(100)).toBe('number')
+      expect(getType(NaN)).toBe('number')
+      expect(getType(Infinity)).toBe('number')
+      expect(getType(-Infinity)).toBe('number')
+    })
+    it('string', () => {
+      expect(getType('abc')).toBe('string')
+    })
+    it('boolean', () => {
+      expect(getType(true)).toBe('boolean')
+    })
+    it('symbol', () => {
+      expect(getType(Symbol())).toBe('symbol')
+    })
+    it('bigint', () => {
+      expect(getType(BigInt(100))).toBe('bigint')
+    })
+    it('object', () => {
+      expect(getType({})).toBe('object')
+    })
+    it('array', () => {
+      expect(getType([])).toBe('array')
+    })
+    it('function', () => {
+      expect(getType(() => { })).toBe('function')
+      expect(getType(class Foo { })).toBe('function')
+    })
+    it('map', () => {
+      expect(getType(new Map())).toBe('map')
+    })
+    it('weakmap', () => {
+      expect(getType(new WeakMap())).toBe('weakmap')
+    })
+    it('set', () => {
+      expect(getType(new Set())).toBe('set')
+    })
+    it('weakset', () => {
+      expect(getType(new WeakSet())).toBe('weakset')
+    })
+    it('date', () => {
+      expect(getType(new Date())).toBe('date')
+    })
+    it('regexp', () => {
+      expect(getType(new RegExp(''))).toBe('regexp')
+    })
+    it('error', () => {
+      expect(getType(new Error())).toBe('error')
+    })
+    it('promise', () => {
+      expect(getType(Promise.resolve())).toBe('promise')
+    })
+  })
+  \`\`\`
 `;export{n as default};
