@@ -17,56 +17,57 @@ const n=`<span style="font-size: 32px; font-weight: 600;">CSS \u904E\u6E21\u8207
   - \`\`\`\u5148\u5FEB\u5F8C\u6162\`\`\` transition-timing-function: ease-out;
   - \`\`\`\u7DE9\u6162\u7684\u958B\u59CB\u548C\u7D50\u675F\`\`\` transition-timing-function: ease-in-out;
   - [\u8C9D\u585E\u723E\u66F2\u7DDA](https://cubic-bezier.com) transition-timing-function: cubic-bezier(.29,-0.98,.5,1.76);
-- \u4F7F\u7528\u6848\u4F8B
-\`\`\`css
-/* 
-  \u53EF\u4EE5\u53EA\u8A2D\u5B9A\u5169\u500B\u5C6C\u6027:
-  1.\u7528\u4F86\u8A2D\u7F6E\u54EA\u500B\u5C6C\u6027\u9700\u8981\u904E\u6E21
-  2.\u8A2D\u7F6E\u904E\u6E21\u7684\u6642\u9593 
-*/
-transition: background 1s;
+- \u7BC4\u4F8B
+  \`\`\`css
+  /* 
+    \u53EF\u4EE5\u53EA\u8A2D\u5B9A\u5169\u500B\u5C6C\u6027:
+    1.\u7528\u4F86\u8A2D\u7F6E\u54EA\u500B\u5C6C\u6027\u9700\u8981\u904E\u6E21
+    2.\u8A2D\u7F6E\u904E\u6E21\u7684\u6642\u9593 
+  */
+  transition: background 1s;
 
-/* 
-  1:\u9700\u8981\u8B8A\u5316\u7684\u5C6C\u6027 
-  2:\u52D5\u756B\u6642\u9577(\u5FC5\u9808\u4EE5s(\u79D2)\u70BA\u55AE\u4F4D) 
-  3.\u8B8A\u5316\u901F\u5EA6\u66F2\u7DDA 
-  4.\u5EF6\u9072\u6642\u9593(\u53EFms) 
-*/
-transition: width 5s linear 0s;
+  /* 
+    1:\u9700\u8981\u8B8A\u5316\u7684\u5C6C\u6027 
+    2:\u52D5\u756B\u6642\u9577(\u5FC5\u9808\u4EE5s(\u79D2)\u70BA\u55AE\u4F4D) 
+    3.\u8B8A\u5316\u901F\u5EA6\u66F2\u7DDA 
+    4.\u5EF6\u9072\u6642\u9593(\u53EFms) 
+  */
+  transition: width 5s linear 0s;
 
-/* \u904E\u6E21\u52D5\u756B\u7BC4\u4F8B */
-.test {
-  width: 200px;
-  height: 200px;
-  background-color: orange;
-  margin-bottom: 10px;
-  transition: transform 1s linear 0s;
-}
+  /* \u904E\u6E21\u52D5\u756B\u7BC4\u4F8B */
+  .test {
+    width: 200px;
+    height: 200px;
+    background-color: orange;
+    margin-bottom: 10px;
+    transition: transform 1s linear 0s;
+  }
 
-.test:hover {
-  transform: scale(1.2) rotate(360deg);
-}
+  .test:hover {
+    transform: scale(1.2) rotate(360deg);
+  }
 
-/* 
-  \u82E5\u6709\u591A\u500B\u5C6C\u6027\u4F7F\u7528\u904E\u6E21
-  \u5247\u53EF\u7528all\u5C6C\u6027\u4EE3\u66FF(\u82E5\u5C6C\u6027\u53EA\u6709\u4E00\u500B\u5247\u8ACB\u52FF\u4F7F\u7528,\u6709\u6548\u7387\u554F\u984C) */
-.test2 {
-  /* \u8A2D\u5B9A\u521D\u59CB\u72C0\u614B */
-  width: 200px;
-  height: 200px;
-  background-color: orange;
-  border-radius: 0;
-  /* \u8A2D\u7F6E\u904E\u6E21 */
-  transition: all 1s linear 0s;
-}
-.test2:hover {
-  width: 400px;
-  height: 160px;
-  background-color: green;
-  border-radius: 50%;
-}
-\`\`\`
-- \u7BC4\u4F8B:\u65CB\u8F49\u7ACB\u9AD4\u6B63\u65B9\u5F62
+  /* 
+    \u82E5\u6709\u591A\u500B\u5C6C\u6027\u4F7F\u7528\u904E\u6E21
+    \u5247\u53EF\u7528all\u5C6C\u6027\u4EE3\u66FF(\u82E5\u5C6C\u6027\u53EA\u6709\u4E00\u500B\u5247\u8ACB\u52FF\u4F7F\u7528,\u6709\u6548\u7387\u554F\u984C) */
+  .test2 {
+    /* \u8A2D\u5B9A\u521D\u59CB\u72C0\u614B */
+    width: 200px;
+    height: 200px;
+    background-color: orange;
+    border-radius: 0;
+    /* \u8A2D\u7F6E\u904E\u6E21 */
+    transition: all 1s linear 0s;
+  }
+  .test2:hover {
+    width: 400px;
+    height: 160px;
+    background-color: green;
+    border-radius: 50%;
+  }
+  \`\`\`
+
+### \u88FD\u4F5C\u65CB\u8F49\u7ACB\u9AD4\u6B63\u65B9\u5F62
 \`\`\`html
 <head>
   <style>
@@ -152,6 +153,48 @@ transition: width 5s linear 0s;
 </body>
 \`\`\`
 
+### \u88FD\u4F5C\u53EF\u4F38\u7E2E\u7684\u83DC\u55AE\u5217\u8868
+\`\`\`html
+<style>
+#test {
+  width: 500px;
+  /* \u4E0B\u9762\u4E09\u500B\u5C6C\u6027\u70BA\u4E3B\u8981\u6838\u5FC3 */
+  max-height: 10vh;
+  overflow-y: hidden;
+  transition: max-height 0.3s linear 0s;
+}
+</style>
+<body style="height: 3000px;">
+  <input type="button" onclick="contentTrans()" value="test">
+  <div id="test">
+    <div>123456</div>
+    <div>123456</div>
+    <div>123456</div>
+    <div>123456</div>
+    <div>123456</div>
+    <div>123456</div>
+    <div>123456</div>
+    <div>123456</div>
+    <div>123456</div>
+    <div>123456</div>
+    <div>123456</div>
+    <div>123456</div>
+    <div>123456</div>
+    <div>123456</div>
+  </div>
+</body>
+<script>
+function contentTrans () {
+  const test = document.getElementById('test')
+  if(test.style.maxHeight === '0vh') {
+    test.style.maxHeight = '10vh'
+  } else {
+    test.style.maxHeight = '0vh'
+  }
+}
+<\/script>
+\`\`\`
+
 ## \u52D5\u756B
 - \u4F7F\u7528\u65B9\u5F0F
   - \`\`\`animation: \u52D5\u756B\u540D\u7A31 \u6301\u7E8C\u5E7E\u79D2 \u7DE9\u885D\u6548\u679C \u5EF6\u9072\u5E7E\u79D2 \u591A\u5C11\u6B21(infinite: \u7121\u6578\u6B21);\`\`\`
@@ -165,44 +208,44 @@ transition: width 5s linear 0s;
   - \`\`\`animation-timing-function\`\`\` \u5B9A\u7FA9\u52D5\u756B\u8F49\u8B8A\u6642\u6642\u9593\u7684\u52A0\u901F\u66F2\u7DDA (\u4F8B\u5982 linear)\u3002
   - \`\`\`animation-fill-mode\`\`\` \u5B9A\u7FA9\u5143\u7D20\u5728\u52D5\u756B\u64AD\u653E\u5916(\u52D5\u756B\u958B\u59CB\u524D\u53CA\u7D50\u675F\u5F8C)\u7684\u72C0\u614B\u3002
 - \u7BC4\u4F8B
-\`\`\`css
-/* \u7121\u9650\u6B21\u57F7\u884C */
-animation: r 1s linear 0s infinite;
-/* alternate: \u5076\u6578\u6B21\u81EA\u52D5\u9006\u5411\u57F7\u884C */
-animation: r 2s linear 0s infinite alternate;
-/* forwards: \u505C\u6B62\u5728\u6700\u5F8C\u7D50\u675F\u72C0\u614B */
-animation: r 1s linear 0s forwards;
+  \`\`\`css
+  /* \u7121\u9650\u6B21\u57F7\u884C */
+  animation: r 1s linear 0s infinite;
+  /* alternate: \u5076\u6578\u6B21\u81EA\u52D5\u9006\u5411\u57F7\u884C */
+  animation: r 2s linear 0s infinite alternate;
+  /* forwards: \u505C\u6B62\u5728\u6700\u5F8C\u7D50\u675F\u72C0\u614B */
+  animation: r 1s linear 0s forwards;
 
-@keyframes r {
-  from {
-      transform: rotate(0);
+  @keyframes r {
+    from {
+        transform: rotate(0);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
   }
 
-  to {
-      transform: rotate(360deg);
+  /* \u53EF\u4EE5\u5229\u7528\u767E\u5206\u6BD4\u5206\u968E\u6BB5\u4F86\u505A\u52D5\u756B */
+  @keyframes changeColor {
+    0% {
+      background-color: red;
+    }
+    20% {
+      background-color: yellow;
+    }
+    40% {
+      background-color: blue;
+    }
+    60% {
+      background-color: green;
+    }
+    80% {
+      background-color: purple;
+    }
+    100% {
+      background-color: orange;
+    }
   }
-}
-
-/* \u53EF\u4EE5\u5229\u7528\u767E\u5206\u6BD4\u5206\u968E\u6BB5\u4F86\u505A\u52D5\u756B */
-@keyframes changeColor {
-  0% {
-    background-color: red;
-  }
-  20% {
-    background-color: yellow;
-  }
-  40% {
-    background-color: blue;
-  }
-  60% {
-    background-color: green;
-  }
-  80% {
-    background-color: purple;
-  }
-  100% {
-    background-color: orange;
-  }
-}
-\`\`\`
+  \`\`\`
 `;export{n as default};
