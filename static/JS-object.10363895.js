@@ -389,23 +389,6 @@ console.log('nationality' in test);// true
   <\/script>
   \`\`\`
 
-## call \u8207 apply
-\`\`\`js
-function sum(b1, b2) {
-  console.log(this.c + this.m + this.e + b1 + b2);
-};
-
-var xiaoming = {
-  c: 100,
-  m: 90,
-  e: 80
-};
-
-// call & apply \u90FD\u53EF\u4EE5\u5E36\u5165\u4E0A\u4E0B\u6587
-sum.call(xiaoming, 3, 5);// call \u9700\u8981\u4F7F\u7528\u9017\u865F
-sum.apply(xiaoming, [3, 5]);// apply \u9700\u8981\u4F7F\u7528\u6578\u7D44
-\`\`\`
-
 ## Object.create
 - \u70BA es5 \u65B0\u589E\u7684\u5EFA\u7ACB\u7269\u4EF6\u7684\u65B9\u6CD5
 - \u57FA\u672C\u7528\u6CD5

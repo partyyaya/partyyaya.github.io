@@ -214,4 +214,36 @@ checkTemp_B(37.2);// \u9AD4\u6EAB\u6B63\u5E38
   - \u7BAD\u982D\u51FD\u6578\u6C92\u6709\u81EA\u5DF1\u7684 \`\`\`this\`\`\` \u5C0D\u8C61(\u6703\u5F80\u4E0A\u4E00\u5C64\u627E \`\`\`this\`\`\` \u5C0D\u8C61)
     - \u76F8\u7576\u65BC\u56B4\u683C\u6A21\u5F0F \`\`\`use strict\`\`\` \u4E0B\u7684\u4E00\u822C\u51FD\u6578
   - \u7BAD\u982D\u51FD\u6578\u4E2D\u6C92\u6709 \`\`\`arguments\`\`\`
+
+## call\u3001apply \u3001bind
+- \u4E09\u8005\u7684\u4E0D\u540C
+  - \`call\`\u3001\`apply\` \u6703\u56DE\u50B3\u51FD\u6578\u57F7\u884C\u7684\u7D50\u679C
+  - \`call\` \u7528\u9017\u865F\u5340\u9694\u6BCF\u500B\u53C3\u6578
+  - \`apply\` \u9664 \`this\` \u4EE5\u5916\u4F7F\u7528\u6578\u7D44\u50B3\u905E\u53C3\u6578
+  - \`bind\` \u6703\u56DE\u50B3\u7D81\u5B9A \`this\` \u7684\u539F\u51FD\u6578\uFF0C\u4E00\u65E6\u7D81\u5B9A\u5C31\u7121\u6CD5\u518D\u6539\u8B8A \`this\` \u8207\u53C3\u6578
+- \u7BC4\u4F8B
+  \`\`\`js
+  function sum(b1, b2) {
+    console.log(this.c + this.m + this.e + b1 + b2);
+  };
+
+  const test1 = {
+    c: 100,
+    m: 90,
+    e: 80
+  };
+  
+  const test2 = {
+    c: 100,
+    m: 100,
+    e: 100
+  };
+
+  // call & apply \u90FD\u53EF\u4EE5\u5E36\u5165\u4E0A\u4E0B\u6587
+  sum.call(test1, 3, 5) // 278\uFF0Ccall \u9700\u8981\u4F7F\u7528\u9017\u865F
+  sum.apply(test1, [3, 5]) // 278\uFF0Capply \u9700\u8981\u4F7F\u7528\u6578\u7D44
+  // bind
+  const test = sum.bind(test1, 3, 5)
+  console.log(test.bind(test2, 7, 10)()) // 278
+  \`\`\`
 `;export{n as default};
