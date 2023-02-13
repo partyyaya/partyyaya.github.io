@@ -237,4 +237,12 @@ const n=`<span style="font-size: 32px; font-weight: 600;">JS \u6B63\u5247\u8868\
   console.log(regexp3.test(str8));
   console.log(regexp3.test(str9));
   \`\`\`
+
+## \u5E38\u7528\u7684\u8868\u9054\u5F0F
+### email
+\`\`\`js
+const isEmail = (s) => {
+  return /^[a-zA-Z0-9.!#$%&'*+\\/=?^_\`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/.test(s)
+}
+\`\`\`
 `;export{n as default};

@@ -258,7 +258,10 @@ const n=`<span style="font-size: 32px; font-weight: 600;">\u79FB\u52D5\u7AEF\u90
 - \u5A92\u9AD4\u67E5\u8A62\u4E09\u7A2E\u4F7F\u7528\u65B9\u5F0F\uFF1A
   - \u5728 \`style\` \u6A19\u7C64\u5167\u52A0\u5165
     \`\`\`css
-    /* \u5BEC\u5EA6 577px \u81F3 768px \u7684\u5E73\u53F0\u4F7F\u7528\u6B64\u6A23\u5F0F */
+    /* 
+       min-width: 577px\uFF1A\u4EE3\u8868\u81F3\u5C11\u8981 577px(\u5305\u542B) \u624D\u6703\u751F\u6548
+       max-width: 768px\uFF1A\u4EE3\u8868\u6700\u591A\u53EA\u751F\u6548\u5230 768px(\u5305\u542B)
+    */
     @media (min-width: 577px) and (max-width: 768px) {
       .test {
         color: blue;

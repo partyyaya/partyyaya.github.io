@@ -549,4 +549,34 @@ console.log(n);// 10
       clearTimeout(timer);
     }
     \`\`\`
+
+## \u5BE6\u7528\u6848\u4F8B
+### isOverflow
+- \u5224\u65B7\u662F\u5426\u70BA\u7701\u7565\u5143\u7D20
+\`\`\`js
+function isOverflow(el) {
+  if (el.scrollWidth > el.offsetWidth || el.scrollHeight > el.clientHeight) {
+    return true
+  }
+  return false
+}
+
+// element plus \u5224\u65B7\u65B9\u5F0F(\u53EA\u6709\u5BEC)\uFF0C\u517C\u5BB9 firefox
+function isOverflow(el) {
+  const range = document.createRange()
+  range.setStart(el, 0)
+  range.setEnd(el, el.childNodes.length)
+  const rangeWidth = range.getBoundingClientRect().width
+  const padding =
+    (Number.parseInt(getComputedStyle(el)['paddingLeft'], 10) || 0) +
+    (Number.parseInt(getComputedStyle(el)['paddingRight'], 10) || 0)
+  if (
+    rangeWidth + padding > el.offsetWidth ||
+    el.scrollWidth > el.offsetWidth
+  ) {
+    return true
+  }
+  return false
+}
+\`\`\`
 `;export{n as default};

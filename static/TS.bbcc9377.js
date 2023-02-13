@@ -18,6 +18,7 @@ const n=`<span style="font-size: 32px; font-weight: 600;">TS \u7C21\u6613\u7B46\
 - \u5B89\u88DD\u5168\u5C40\u74B0\u5883\uFF1A\`\`\`npm install -g typescript\`\`\`
 - \u6AA2\u67E5\u662F\u5426\u5DF2\u5B89\u88DD\uFF1A\`\`\`tsc -v\`\`\`
 - \u7522\u751F\u521D\u59CB\u8A2D\u5B9A\u6A94\uFF1A\`\`\`tsc --init\`\`\`
+  - \u82E5\u5B89\u88DD\u5728 \`devDependencies\`\uFF0C\u5247\u9808\u52A0\u958B\u982D \`npx\`
   - \u8A2D\u5B9A\u6A94\u5167\u53EF\u4EE5\u8A3B\u91CB\uFF0C\u4E26\u5305\u542B\u6240\u6709\u8A2D\u5B9A\u89E3\u91CB
 - \u7DE8\u8B6F\u6587\u4EF6\uFF1A\`\`\`tsc fileName.ts\`\`\`
 
