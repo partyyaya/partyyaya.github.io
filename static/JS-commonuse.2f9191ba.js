@@ -1,9 +1,9 @@
-const n=`<span style="font-size: 32px; font-weight: 600;">JS \u5E38\u7528\u7528\u6CD5</span>
+const n=`<span style="font-size: 32px; font-weight: 600;">JS \u5E38\u7528\u529F\u80FD\u8207\u5DE5\u5177</span>
 
 ## Throttle \u7BC0\u6D41\u9396
-- \u529F\u80FD\uFF1A\u78BA\u4FDD\u51FD\u6578\u57F7\u884C\u4E2D\u9014\u4E0D\u6703\u518D\u6B21\u57F7\u884C
+- \u529F\u7528\uFF1A\u78BA\u4FDD\u51FD\u6578\u57F7\u884C\u4E2D\u9014\u4E0D\u6703\u518D\u6B21\u57F7\u884C
 - \u4F7F\u7528\u60C5\u5883\uFF1A\u5E38\u4F7F\u7528\u5728\u52D5\u756B\u6216\u8F2A\u64AD\u5716\uFF0C\u907F\u514D\u4F7F\u7528\u8005\u77ED\u6642\u9593\u89F8\u767C\u591A\u6B21
-- \u7BC4\u4F8B
+- \u4EE3\u78BC\uFF1A
   \`\`\`js
   var lock = true;
   function needToLock(){
@@ -19,9 +19,9 @@ const n=`<span style="font-size: 32px; font-weight: 600;">JS \u5E38\u7528\u7528\
   \`\`\`
 
 ## debounce \u53BB\u6296\u52D5
-- \u529F\u80FD\uFF1A\u9810\u9632\u4F7F\u7528\u8005\u6216\u786C\u9AD4\u8A2D\u5099\u77ED\u6642\u9593\u5167\u89F8\u767C\u591A\u6B21
+- \u529F\u7528\uFF1A\u9810\u9632\u4F7F\u7528\u8005\u6216\u786C\u9AD4\u8A2D\u5099\u77ED\u6642\u9593\u5167\u89F8\u767C\u591A\u6B21
 - \u4F7F\u7528\u60C5\u5883\uFF1A\u5E38\u4F7F\u7528\u5728\u767C\u9001\u8ACB\u6C42\u6216\u6EFE\u52D5\u4E8B\u4EF6\u6642\u4F7F\u7528
-- \u7BC4\u4F8B
+- \u4EE3\u78BC\uFF1A
   \`\`\`js
   const input1 = document.getElementById('input1')
   function debounce(fn, delay = 500) {
@@ -50,7 +50,7 @@ const n=`<span style="font-size: 32px; font-weight: 600;">JS \u5E38\u7528\u7528\
 ## \u5206\u6642\u51FD\u6578
 - \u529F\u7528\uFF1A\u9700\u55AE\u6B21\u6E32\u67D3\u5927\u91CF\u8CC7\u6599\u6642\u4F7F\u7528\uFF0C\u907F\u514D\u9020\u6210\u756B\u9762\u505C\u9813\u5361\u4F4F
 - \u4F7F\u7528\u60C5\u5883\uFF1A\u7576\u5F8C\u7AEF\u4E00\u6B21\u6027\u7D66\u4E88\u5927\u91CF\u9805\u76EE\u8CC7\u6599\u6642\u53EF\u4F7F\u7528
-- \u7BC4\u4F8B
+- \u4EE3\u78BC\uFF1A
   \`\`\`js
   /*
     dataArray\uFF1A\u9700\u4F9D\u5E8F\u653E\u5165\u6307\u5B9A\u51FD\u6578\u7684\u8CC7\u6599\u7684\u9663\u5217
@@ -100,7 +100,7 @@ const n=`<span style="font-size: 32px; font-weight: 600;">JS \u5E38\u7528\u7528\
 ## \u65B7\u9EDE\u8ABF\u8A66 debugger
 - \u529F\u7528\uFF1A\u9700\u8981\u89C0\u5BDF\u5728\u7A0B\u5F0F\u4E2D\u5404\u9EDE\u9020\u6210\u7684\u9801\u9762\u8B8A\u5316\u6642
 - \u67E5\u770B\u5404\u5BB6\u700F\u89BD\u5668\u652F\u6301\uFF1A[debugger](https://caniuse.com/?search=debugger)
-- \u7BC4\u4F8B\uFF1A
+- \u4EE3\u78BC\uFF1A
   \`\`\`js
   console.log(111)
   // \u52A0\u5165 debugger\uFF0C\u700F\u89BD\u5668\u6703\u5728\u8A72\u9EDE\u66AB\u505C\u4E26\u53EA\u8F38\u51FA 111
@@ -189,6 +189,73 @@ const n=`<span style="font-size: 32px; font-weight: 600;">JS \u5E38\u7528\u7528\
     })
   })
   \`\`\`
+
+## \u8907\u88FD\u8F38\u5165\u7684\u5B57\u4E32
+- \u529F\u7528\uFF1A\u8B93\u4F7F\u7528\u8005\u66F4\u65B9\u4FBF\u8907\u88FD\u6307\u5B9A\u7684\u5B57\u6BB5
+- \u4EE3\u78BC\uFF1A
+  \`\`\`js
+  const copyTextToClipboard = (value) => {
+    const textArea = document.createElement("textarea");
+    textArea.style.background = 'transparent';
+    textArea.value = value;
+    document.body.appendChild(textArea);
+    textArea.select();
+    try {
+      // \u8907\u88FD\u5230\u7C98\u8CBC\u7248
+      const successful = document.execCommand('copy');
+    } catch (err) {
+      console.log('Oops! unable to copy...');
+    }
+    document.body.removeChild(textArea);
+  }
+  \`\`\`
+
+## \u53D6\u5F97\u5143\u7D20\u6EFE\u52D5\u4F4D\u7F6E
+- \u529F\u7528\uFF1A\u5728\u79FB\u52D5\u7AEF\u5207\u63DB\u9801\u9762\u6642\uFF0C\u8A18\u4F4F\u4F7F\u7528\u8005\u7576\u524D\u4F4D\u7F6E\u4F7F\u5176\u66F4\u65B9\u4FBF\u6AA2\u95B1
+\`\`\`js
+// \u9810\u8A2D\u70BA window
+const getScrollPosition = (el = window) => ({
+    x: el.pageXOffset !== undefined ? el.pageXOffset : el.scrollLeft,
+    y: el.pageYOffset !== undefined ? el.pageYOffset : el.scrollTop
+});
+\`\`\`
+
+## \u624B\u6A5F\u3001\u4FE1\u7BB1\u3001\u5E02\u8A71\u6AA2\u9A57
+- \u529F\u7528\uFF1A\u7528\u65BC\u6AA2\u6E2C\u4F7F\u7528\u8005\u8F38\u5165\u8CC7\u6599\u7684\u6B63\u78BA\u6027
+\`\`\`js
+const validateEmail = (email) => {
+  return /^(([^<>()[\\]\\\\.,;:\\s@"]+(\\.[^<>()[\\]\\\\.,;:\\s@"]+)*)|(".+"))@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$/.test(email)
+}
+
+// Taiwan \u624B\u6A5F
+const validateMobile = (mobile) => {
+  return /^09[0-9]{8}$/.test(mobile)
+}
+
+// Taiwan \u5E02\u8A71
+const validatePhone = (phone) => {
+  return /^[0-9]{2,4}-?[0-9]{7,8}$/.test(phone)
+}
+\`\`\`
+
+## \u5224\u65B7\u662F\u5426\u70BAPC
+- \u529F\u7528\uFF1A\u82E5\u516C\u53F8\u4F7F\u7528\u81EA\u9069\u61C9\u7DB2\u9801\uFF0C\u9700\u8981\u4F7F\u7528\u5176\u5224\u65B7\u5C07\u4F7F\u7528\u8005\u5C0E\u5F80 \`PC\` \u6216 \`H5\` \u5176\u4E2D\u4E4B\u4E00
+\`\`\`js
+const isPC = () => {
+  const userAgentInfo = navigator.userAgent;
+  const Agents = ["Android", "iPhone",
+      "SymbianOS", "Windows Phone",
+      "iPad", "iPod"];
+  let flag = true;
+  for (let v = 0; v < Agents.length; v++) {
+      if (userAgentInfo.indexOf(Agents[v]) > 0) {
+          flag = false;
+          break;
+      }
+  }
+  return flag;
+}
+\`\`\`
 
 ## \u5E38\u7528\u7684\u7B2C\u4E09\u65B9\u5DE5\u5177\u5EAB
 - [lodash](https://lodash.com/)
