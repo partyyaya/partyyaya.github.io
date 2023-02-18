@@ -257,6 +257,65 @@ const isPC = () => {
 }
 \`\`\`
 
+## \u6EFE\u52D5\u81F3\u9802\u90E8
+- \u529F\u7528\uFF1A\u65B9\u4FBF\u4F7F\u7528\u8005\u56DE\u5230\u9802\u90E8
+\`\`\`js
+// 1.\u53EF\u63A7\u5236\u5FEB\u6162
+const scrollToTop = () => {
+  // \u5132\u5B58\u4E0A\u4E00\u6B21\u7684\u4F4D\u7F6E\uFF0C\u4EE5\u6AA2\u6E2C\u4F7F\u7528\u8005\u662F\u5426\u81EA\u6EFE\u52D5
+  let prevPos = -1
+  const beginToScroll  = () => {
+    // \u53D6\u5F97\u76EE\u524D\u7684\u4F4D\u7F6E
+    const pos = document.documentElement.scrollTop || document.body.scrollTop;
+    // \u5224\u65B7\u521D\u59CB\u5316\u3001\u4F7F\u7528\u8005\u662F\u5426\u81EA\u6EFE\u52D5(\u662F\u5247\u66AB\u505C\u56DE\u9802\u90E8)\u3001\u662F\u5426\u5DF2\u5230\u9802\u90E8
+    if (prevPos === -1 || Math.abs(parseInt(prevPos - prevPos / 8) - pos) < 2 && pos > 0) {
+      prevPos = pos
+      // \u6ED1\u9806\u7684\u6EFE\u52D5\u81F3\u9802\u90E8
+      window.scrollTo(0, parseInt(pos - pos / 8))
+      // \u4F7F\u7528 requestAnimationFrame \u914D\u5408\u700F\u89BD\u5668\u57F7\u884C\u52D5\u756B
+      window.requestAnimationFrame(beginToScroll)
+    }
+  }
+  beginToScroll()
+}
+
+// 2.\u7CFB\u7D71\u7528\u6CD5
+window.scrollTo({
+  top: 0,
+  behavior: 'smooth'
+})
+\`\`\`
+
+## \u7372\u53D6 FPS(Frame Per Second)
+- \u529F\u7528\uFF1A\u53D6\u5F97\u76EE\u524D\u4F7F\u7528\u8005\u87A2\u5E55\u7684 \`FPS\`
+- \u539F\u7406\uFF1A\u4F7F\u7528 \`requestAnimationFrame\` \u9032\u884C\u6642\u9593\u5DEE\u8A08\u7B97\u53D6\u5F97
+\`\`\`js
+const getFPS = async () => {
+  return new Promise((resolve, reject) => {
+    let count = 0
+    let fps = 0
+    let now = 0
+    let before = Date.now()
+    function loop(){
+      count++
+      now = Date.now()
+      fps = Math.round(1000/(now - before))
+      before = now
+      requestAnimationFrame(loop)
+      // \u524D\u9762\u8A08\u7B97\u6709\u8F03\u5927\u8AA4\u5DEE\uFF0C\u4EE5\u7B2C5\u6B21\u70BA\u4E3B
+      if(count === 5){
+        resolve(fps)
+      }
+    }
+    requestAnimationFrame(loop)
+  })
+}
+
+// \u4F7F\u7528\u65B9\u6CD5
+let fps = await getFPS()
+console.log(fps)
+\`\`\`
+
 ## \u5E38\u7528\u7684\u7B2C\u4E09\u65B9\u5DE5\u5177\u5EAB
 - [lodash](https://lodash.com/)
   - \u4E00\u500B\u63D0\u4F9B\u6A21\u584A\u5316\u3001\u6027\u80FD\u548C\u9644\u52A0\u529F\u80FD\u7684\u73FE\u4EE3\u5BE6\u7528\u7A0B\u5E8F\u5EAB

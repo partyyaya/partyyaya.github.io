@@ -742,4 +742,21 @@ const n=`<span style="font-size: 32px; font-weight: 600;">JS \u5176\u4ED6\u7528\
     }
     await getData()
     \`\`\`
+
+## requestAnimationFrame
+- \u529F\u7528\uFF1A\u914D\u5408\u700F\u89BD\u5668\u7684\u986F\u793A\u983B\u7387\u53BB\u57F7\u884C\u76EE\u7684
+- \u6703\u8FD4\u56DE\u4E00\u500B \`number\` \u985E\u578B\u503C\uFF0C\u53EF\u4EE5\u50B3\u5165 \`cancelAnimationFrame\` \u4F86\u53D6\u6D88\u57F7\u884C
+- \u8207 \`setTimeout\`\u3001\`setInterval\`\u7684\u4E0D\u540C
+  - \`setTimeout\`\u3001\`setInterval\` \u9700\u7B49\u540C\u6B65\u3001\u5FAE\u4EFB\u52D9\u5B8C\u6210\u5F8C\uFF0C\u624D\u6703\u57F7\u884C
+  - \u800C \`requestAnimationFrame\` \u7531\u7CFB\u7D71\u4F86\u6C7A\u5B9A\u56DE\u8ABF\u51FD\u6578\u7684\u57F7\u884C\u6642\u6A5F\uFF0C\u6642\u9593\u9593\u9694\u6703\u8DDF\u8457\u7CFB\u7D71\u7684\u7E6A\u88FD\u983B\u7387\uFF0C\u5982\uFF1A\`\u7E6A\u88FD\u7387\uFF1A60hz => \u6BCF16.7ms\u66F4\u65B0\u4E00\u6B21\`
+- \u4F7F\u7528\u53C3\u8003\uFF1A
+  \`\`\`js
+  function testFuc () {
+    console.log('test')
+  }
+  // \u975E\u56B4\u683C\u6A21\u5F0F window \u53EF\u7701\u7565
+  let cancelID = window.requestAnimationFrame(testFuc)
+  // \u53D6\u6D88\u57F7\u884C
+  window.cancelAnimationFrame(cancelID)
+  \`\`\`
 `;export{n as default};
