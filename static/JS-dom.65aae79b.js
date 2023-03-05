@@ -177,6 +177,18 @@ var oBox = document.getElementById('box');
 oBox.style.fontSize = '50px';
 \`\`\`
 
+- \u904E\u7A0B\u4E2D\u82E5\u9700\u8981\u983B\u7E41\u9032\u884C\u591A\u500B CSS \u64CD\u4F5C\uFF0C\u53EF\u4F7F\u7528 \`cssText\` \u4F86\u964D\u4F4E\u91CD\u7E6A\u7684\u6210\u672C
+\`\`\`js
+const oBox = document.getElementById('box');
+const options = ['left: 20px', 'top: 50px']
+changeStyle(options)
+function changeStyle(arr) {
+  const original = oBox.style.cssText.split(';')
+  original.pop()
+  oBox.style.cssText = original.concat(arr).join(';') + ';'
+}
+\`\`\`
+
 ### \u66F4\u6539\u975E\u7279\u6B8A\u7BC0\u9EDE\u5C6C\u6027
 \`\`\`js
 var box = document.getElementById('box');
