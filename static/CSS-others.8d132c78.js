@@ -208,8 +208,127 @@ const n=`<span style="font-size: 32px; font-weight: 600;">CSS \u5176\u4ED6\u5BE6
     cursor: grabbing;
   }
   \`\`\`
- 
+
+## \u81EA\u5B9A\u7FA9\u6EFE\u52D5\u689D
+- [MDN \u4ECB\u7D39](https://developer.mozilla.org/zh-CN/docs/Web/CSS/::-webkit-scrollbar)
+- \u7BC4\u4F8B\u8207\u8AAA\u660E
+  \`\`\`html
+  <style>
+    /* \u6EFE\u52D5\u689D\u5BB9\u5668 */
+    .scroll-container {
+      margin: 10px;
+      width: 500px;
+      height: 150px;
+      /*
+        overlay\u3001auto \u7684\u4E0D\u540C\uFF1A
+        auto\uFF1A \u6EFE\u52D5\u689D\u4E0D\u6703\u64CB\u5230\u5BB9\u5668\u5167\u5BB9\uFF0C
+        overlay\uFF1A\u6EFE\u52D5\u689D\u6703\u64CB\u5230\u5BB9\u5668\u5167\u5BB9\uFF0C
+      */
+      overflow: overlay;
+      background-color: #eee;
+      white-space: nowrap;
+    }
+
+    /* 
+      \u6EDA\u52D5\u689D\u672C\u9AD4
+      \u5FC5\u9808\u8A2D\u7F6E\u5BEC\u9AD8\uFF0C\u4EE5\u63A7\u5236\u6EFE\u52D5\u689D\u5C3A\u5BF8\uFF0C\u5426\u5247\u4E0D\u751F\u6548
+      \u5BEC\u9AD8\u5206\u5225\u5C0D\u61C9 y\u8EF8 \u548C x\u8EF8 \u7684\u6EFE\u52D5\u689D\u5C3A\u5BF8
+      \u82E5\u5BEC\u9AD8\u70BA0\uFF0C\u5247\u53EF\u96B1\u85CF\u6EFE\u52D5\u689D\uFF0C\u4F46\u4ECD\u53EF\u4FDD\u6301\u6EFE\u52D5
+    */
+    .scroll-container::-webkit-scrollbar {
+      width: 12px;
+    }
+
+    /*
+      \u5169\u689D\u6EFE\u52D5\u689D x\u8F74\u3001y\u8F74 \u4EA4\u63A5\u8655
+    */
+    .scroll-container::-webkit-scrollbar-corner {
+      background-color: transparent;
+    }
+
+    /*
+      \u6EFE\u52D5\u689D\u6ED1\u584A\uFF0C\u5373\u6EFE\u52D5\u689D\u6EFE\u52D5\u7684\u90E8\u5206
+      \u5FC5\u9808\u8981\u8A2D\u7F6E\uFF0C\u5426\u5247\u4E0D\u6703\u51FA\u73FE\u6ED1\u584A
+    */
+    .scroll-container::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+      background: #ec8e8e;
+    }
+
+    /*
+      \u6EFE\u52D5\u689D\u8ECC\u9053
+      \u4E0D\u8A2D\u7F6E\u5247\u4E0D\u51FA\u73FE\u8ECC\u9053
+    */
+    .scroll-container::-webkit-scrollbar-track {
+      /* -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2); */
+      border-radius: 10px;
+      background: transparent;
+      /*
+        ps:\u8A72\u90E8\u5206\u4F7F\u7528 scss \u8A9E\u6CD5\u65B9\u4FBF\u8AAA\u660E
+        \u4EE5\u4E0B\u65B9\u6CD5\u4E5F\u53EF\u4EE5\u7528\u65BC\u8A2D\u7F6E\u6EFE\u52D5\u689D\u6ED1\u584A scrollbar-thumb
+        \u8A2D\u7F6E\u6C34\u5E73\u65B9\u5411\u7684\u8ECC\u9053
+        &:horizontal {
+          background-color: blue;
+        }
+    
+        \u8A2D\u7F6E\u5782\u76F4\u65B9\u5411\u7684\u8ECC\u9053
+        &:vertical {
+          background-color: red;
+        }
+      */
+    }
+
+    /*
+      \u6EFE\u52D5\u689D\u5169\u7AEF\u7684\u7BAD\u982D\u6309\u9215
+      \u4E0D\u8A2D\u7F6E\u5247\u4E0D\u51FA\u73FE
+    */
+    .scroll-container::-webkit-scrollbar-button {
+      /*
+        \u5DE6\u4FA7\u3001\u4E0A\u4FA7
+        &:decrement {
+            background-color: purple;
+        }
+
+        \u53F3\u4FA7\u3001\u4E0B\u4FA7
+        &:increment {
+            background-color: green;
+        }
+      */
+    }
+    
+    /* \u6C92\u6709\u6ED1\u584A\u7684\u6EFE\u52D5\u689D\u8ECC\u9053\uFF0C\u6216\u8005\u8AAA\u662F\u5167\u5C64\u8ECC\u9053 */
+    .scroll-container::-webkit-scrollbar-track-piece {
+      /*
+        \u5167\u5C64\u8ECC\u9053 \u6ED1\u584A\u5DE6\u5074\u3001\u4E0A\u5074
+        &:decrement {
+          background-color: red;
+        }
+
+        \u5167\u5C64\u8ECC\u9053 \u6ED1\u584A\u53F3\u5074\u3001\u4E0B\u5074
+        &:increment {
+          background-color: blue;
+        }
+      */
+      /*
+        \u5176\u4ED6\u507D\u985E
+        :window-inactive\uFF1A\u9069\u7528\u65BC\u6240\u6709\u6EFE\u52D5\u689D\uFF0C\u7576\u7126\u9EDE\u4E0D\u5728\u6EFE\u52D5\u689D\u7A97\u53E3\u7684\u6642\u5019\u751F\u6548
+        :double-button\uFF1A\u9069\u7528\u65BC\u6309\u9215\u548C\u8ECC\u9053\u788E\u7247\u3002\u5224\u65B7\u8ECC\u9053\u7D50\u675F\u7684\u4F4D\u7F6E\u662F\u5426\u662F\u4E00\u5C0D\u6309\u9215\u3002\u4E5F\u5C31\u662F\u8ECC\u9053\u788E\u7247\u7DCA\u6328\u8457\u4E00\u5C0D\u5728\u4E00\u8D77\u7684\u6309\u9215
+        :single-button\uFF1A\u9069\u7528\u65BC\u6309\u9215\u548C\u8ECC\u9053\u788E\u7247\u3002\u5224\u65B7\u8ECC\u9053\u7D50\u675F\u7684\u4F4D\u7F6E\u662F\u5426\u662F\u4E00\u500B\u6309\u9215\u3002\u4E5F\u5C31\u662F\u8ECC\u9053\u788E\u7247\u7DCA\u6328\u8457\u4E00\u500B\u55AE\u7368\u7684\u6309\u9215
+        :no-button\uFF1A\u8868\u793A\u8ECC\u9053\u7D50\u675F\u7684\u4F4D\u7F6E\u6C92\u6709\u6309\u9215
+        :corner-present\uFF1A\u8868\u793A\u6EFE\u52D5\u689D\u7684\u89D2\u843D\u662F\u5426\u5B58\u5728
+        \u9084\u53EF\u914D\u5176\u5B83\u507D\u985E\uFF0C\u5982:hover\u3001:active
+      */
+    }
+  </style>
+  <body>
+    <div class="scroll-container">
+      <p>111222333</p><p>111222333</p><p>111222333</p><p>111222333</p><p>111222333</p><p>111222333</p><p>111222333</p><p>111222333</p><p>111222333</p><p>111222333</p><p>111222333</p>
+    </div>
+  </body>
+  \`\`\`
+
 ## \u9801\u9762\u8A2D\u8A08\u5BEC\u5EA6\u8207\u9AD8\u5EA6
 - 1.\u6709\u8A2D\u8A08\u5716\u512A\u5148\u7D71\u4E00\u4F7F\u7528 \`rem\`
-- 2.\u6700\u5916\u5C64\u4F7F\u7528 \`vw\u3001vh\`\uFF0C\u5167\u5C64\u4F7F\u7528 \`%\` \u4EE5\u65B9\u4FBF\u8A08\u7B97\u5BEC\u9AD8
+- 2.\`vh\` \u76E1\u91CF\u5C11\u7528\uFF0C\u56E0\u624B\u6A5F\u700F\u89BD\u5668\u6703\u6709\u6A19\u984C\u8207\u5E95\u90E8\u6309\u9375\u906E\u64CB\u554F\u984C\uFF0C\u53EF\u4EE5\u6539\u7528 \`vw\`
 `;export{n as default};

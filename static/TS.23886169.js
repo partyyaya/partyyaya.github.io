@@ -1,20 +1,6 @@
 const n=`<span style="font-size: 32px; font-weight: 600;">TS \u7C21\u6613\u7B46\u8A18</span>
 
-## \u5B89\u88DD\u958B\u767C\u74B0\u5883
-### \u5B89\u88DD nvm
-- \u7528\u9014\uFF1A\`\`\`nvm\`\`\` \u53EF\u5207\u63DB \`\`\`Node.js\`\`\` \u7248\u672C\u74B0\u5883\uFF0C\u4EE5\u65B9\u4FBF\u5404\u5834\u5408\u958B\u767C
-- \u82E5\u5148\u524D\u6709\u5B89\u88DD \`\`\`Node.js\`\`\` \u6703\u8A62\u554F\u662F\u5426\u4E00\u8D77\u7BA1\u7406\u8A72\u7248\u672C
-- [Windows \u5B89\u88DD](https://github.com/coreybutler/nvm-windows/releases)
-  - \u9078\u64C7\u6700\u65B0\u7248\u672C\u4E26\u4E0B\u8F09 \`\`\`nvm-setup.zip\`\`\`
-  - \u89E3\u58D3\u7E2E\u4E26\u57F7\u884C \`\`\`nvm-setup.exe\`\`\` \u9032\u884C\u5B89\u88DD\u5373\u53EF
-- [Linux \u5B89\u88DD](https://github.com/nvm-sh/nvm#installing-and-updating)
-- \u5E38\u7528\u6307\u4EE4\u5982\u4E0B\uFF1A
-  - \u5B89\u88DD\u7279\u5B9A\u7248\u672C\u7684 \`\`\`nvm\`\`\`\uFF1A\`\`\`nvm install \u7248\u672C\u865F\`\`\`
-  - \u5217\u51FA\u5DF2\u5B89\u88DD\u6E05\u55AE\uFF1A\`\`\`nvm list\`\`\`
-  - \u5207\u63DB\u5230\u7279\u5B9A \`\`\`Node.js\`\`\` \u7248\u672C(\u5DF2\u5B89\u88DD\u7684\u7248\u672C)\uFF1A\`\`\`nvm use v\u7248\u672C\u865F\`\`\`
-    - \u5FC5\u9808\u4F7F\u7528\u7CFB\u7D71\u7BA1\u7406\u54E1\u57F7\u884C
-
-### \u5B89\u88DD Typescript
+## \u5B89\u88DD Typescript
 - \u5B89\u88DD\u5168\u5C40\u74B0\u5883\uFF1A\`\`\`npm install -g typescript\`\`\`
 - \u6AA2\u67E5\u662F\u5426\u5DF2\u5B89\u88DD\uFF1A\`\`\`tsc -v\`\`\`
 - \u7522\u751F\u521D\u59CB\u8A2D\u5B9A\u6A94\uFF1A\`\`\`tsc --init\`\`\`

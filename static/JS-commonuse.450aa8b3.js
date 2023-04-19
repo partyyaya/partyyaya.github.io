@@ -316,6 +316,37 @@ let fps = await getFPS()
 console.log(fps)
 \`\`\`
 
+## \u6AA2\u67E5\u5C0D\u8C61\u662F\u5426\u70BA\u7A7A
+\`\`\`js
+const isObjEmpty = obj => Reflect.ownKeys(obj).length === 0 && obj.constructor === Object
+isObjEmpty({}) // true
+isObjEmpty({ a:'not a empty obj'}) // false
+\`\`\`
+
+## \u8F49\u63DB URL \u53C3\u6578\u70BA\u5C0D\u8C61
+\`\`\`js
+const getURLParams = URL => Object.fromEntries(URL.match(/\\w+=[^&]+/g).map(item => item.split("=")))
+getURLParams('https://www.google.com.hk/search?query=js+ts&window=1') // { query: 'js+ts', window: '1' }
+\`\`\`
+
+## \u6AA2\u67E5\u9801\u9762\u662F\u5426\u5728\u5F8C\u53F0
+- \u4F7F\u7528\u8005\u5207\u63DB\u700F\u89BD\u5668\u9801\u7C64\u6642\uFF0C\u9801\u9762\u5C07\u5931\u53BB\u7126\u9EDE
+\`\`\`js
+const isTabActive = () => !document.hidden
+\`\`\`
+
+## \u8A08\u7B97\u5169\u65E5\u671F\u76F8\u5DEE\u5929\u6578
+\`\`\`js
+const twoDateDiff = (date1, date2) => Math.ceil(Math.abs(date1.getTime() - date2.getTime()) / 86400000);
+twoDateDiff(new Date("2023-01-21"), new Date("2023-02-12")) // 22
+\`\`\`
+
+## \u5C07 RGB \u8F49\u63DB\u70BA Hex
+\`\`\`js
+const rgbToHex = (r, g, b) => \`#\${((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1)}\`
+rgbToHex(255, 255, 255) // #ffffff
+\`\`\`
+
 ## \u5E38\u7528\u7684\u7B2C\u4E09\u65B9\u5DE5\u5177\u5EAB
 - [lodash](https://lodash.com/)
   - \u4E00\u500B\u63D0\u4F9B\u6A21\u584A\u5316\u3001\u6027\u80FD\u548C\u9644\u52A0\u529F\u80FD\u7684\u73FE\u4EE3\u5BE6\u7528\u7A0B\u5E8F\u5EAB

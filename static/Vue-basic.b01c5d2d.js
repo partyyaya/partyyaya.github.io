@@ -486,57 +486,64 @@ const vm = app.mount('#root');
 \`\`\`
 
 ## \u5FAA\u74B0\u6E32\u67D3
-- \`\`\`v-for\`\`\` \u53EF\u6E32\u67D3\u6578\u7D44\u8207\u5C0D\u8C61\uFF0C\u4E26\u4E14\u66F4\u6539\u5F8C\u6703\u81EA\u52D5\u6E32\u67D3
-  - \u5728\u6578\u7D44\u6709\u5169\u500B\u56DE\u50B3\u503C\uFF1A\`\`\`value\u3001index\`\`\`
-  - \u5728\u5C0D\u8C61\u6709\u4E09\u500B\u56DE\u50B3\u503C\uFF1A\`\`\`value\u3001key\u3001index\`\`\`
-  - \u95DC\u65BC \`\`\`:key="key"\`\`\`
-    - \`\`\`key \u9700\u662F\u552F\u4E00\u503C\`\`\` \u80FD\u66F4\u5FEB\u901F\u7684\u5FA9\u7528\u5143\u4EF6\u9054\u5230\u66F4\u5FEB\u6E32\u67D3\u6548\u679C
-    - \u8ACB\u52FF\u5C07 \`\`\`index\`\`\` \u653E\u5165\uFF0C\u56E0\u70BA\u6578\u7D44 \`\`\`index\`\`\` \u6703\u91CD\u8907\u4F7F\u7528
-    - \`\`\`v-if\`\`\` \u4E0D\u80FD\u8207 \`\`\`v-for\`\`\` \u5171\u7528\uFF0C\u53EF\u4EE5\u7528 \`\`\`template\`\`\` \u505A\u5FAA\u74B0\uFF0C\u88E1\u9762\u7528 \`\`\`v-if\`\`\` \u5224\u65B7\uFF0C\u4E26\u4E14 \`\`\`template\`\`\` \u4E0D\u6703\u7522\u751F\u6A19\u7C64 
+- \`v-for\` \u53EF\u6E32\u67D3\u6578\u7D44\u8207\u5C0D\u8C61\uFF0C\u4E26\u4E14\u66F4\u6539\u5F8C\u6703\u81EA\u52D5\u6E32\u67D3
+  - \u5728\u6578\u7D44\u6709\u5169\u500B\u56DE\u50B3\u503C\uFF1A\`value\u3001index\`
+  - \u5728\u5C0D\u8C61\u6709\u4E09\u500B\u56DE\u50B3\u503C\uFF1A\`value\u3001key\u3001index\`
+  - \u95DC\u65BC \`:key="key"\`
+    - \`key \u9700\u662F\u552F\u4E00\u503C\` \u80FD\u66F4\u5FEB\u901F\u7684\u5FA9\u7528\u5143\u4EF6\u9054\u5230\u66F4\u5FEB\u6E32\u67D3\u6548\u679C
+    - \u8ACB\u52FF\u5C07 \`index\` \u653E\u5165\uFF0C\u56E0\u70BA\u6578\u7D44 \`index\` \u6703\u91CD\u8907\u4F7F\u7528
 - \u6578\u7D44\uFF1A\u53EF\u4F7F\u7528\u6578\u7D44\u51FD\u6578\u3001\u76F4\u63A5\u66FF\u63DB\u6578\u7D44\u3001\u66F4\u65B0\u6578\u7D44\u5167\u5BB9
 - \u5C0D\u8C61\uFF1A\u53EF\u76F4\u63A5\u6DFB\u52A0\u5C0D\u8C61\u5C6C\u6027
-\`\`\`js
-const app = Vue.createApp({
-  data() {
-    return {
-      listArray: ['ming', 'test', 'myjob'],
-      listObject: {
-        firstName: 'ming',
-        lastName: 'test',
-        job: 'myjob'
+- \u6CE8\u610F\uFF1A\`v-if\` \u4E0D\u80FD\u8207 \`v-for\` \u5171\u7528\uFF0C\u53EF\u4EE5\u7528 \`template\` \u5206\u96E2\uFF0C\u4E26\u4E14 \`template\` \u4E0D\u6703\u7522\u751F\u6A19\u7C64
+  - \u82E5\u5C07\u5169\u8005\u653E\u5728\u4E00\u8D77\uFF0C\u53EF\u89C0\u5BDF\u5230\u4EE5\u4E0B\u60C5\u6CC1
+  - \u5728 \`Vue2\` \`v-for\` \u6BD4 \`v-if\` \u512A\u5148\u7D1A\u66F4\u9AD8
+  - \u5728 \`Vue3\` \`v-if\` \u6BD4 \`v-for\` \u512A\u5148\u7D1A\u66F4\u9AD8
+  - \u5DE5\u5177\uFF1A
+    - \`Vue2\` \u4F7F\u7528 [v2.template-explorer](https://v2.template-explorer.vuejs.org/#%3Cdiv%20id%3D%22app%22%3E%7B%7B%20msg%20%7D%7D%3C%2Fdiv%3E)
+    - \`Vue3\` \u4F7F\u7528 [vue3-template-explorer](https://template-explorer.vuejs.org/#eyJzcmMiOiI8ZGl2PkhlbGxvIFdvcmxkPC9kaXY+Iiwib3B0aW9ucyI6e319)
+- \u7BC4\u4F8B
+  \`\`\`js
+  const app = Vue.createApp({
+    data() {
+      return {
+        listArray: ['ming', 'test', 'myjob'],
+        listObject: {
+          firstName: 'ming',
+          lastName: 'test',
+          job: 'myjob'
+        }
       }
-    }
-  },
-  methods: {
-    handleAddBtnClick() {
-      // \u4F7F\u7528\u6578\u7D44\u51FD\u6578
-      this.listArray.pop();
-      // \u76F4\u63A5\u66FF\u6362\u6570\u7EC4
-      this.listArray = ['1', '2']
-      // \u76F4\u63A5\u66F4\u65B0\u6570\u7EC4\u7684\u5185\u5BB9
-      this.listArray[1] = 'hello'
-      // \u76F4\u63A5\u6DFB\u52A0\u5BF9\u8C61\u7684\u5185\u5BB9\uFF0C\u4E5F\u53EF\u4EE5\u81EA\u52A8\u7684\u5C55\u793A\u51FA\u6765
-      this.listObject.age = 100;
-    }
-  },
-  template: \`
-    <div>
-      <template v-for="(value, key, index) in listObject"
-        :key="index">
-        <div v-if="key !== 'lastName'">
-          {{value}} -- {{key}}
-        </div>
-      </template>
-      <div v-for="item in 10">{{item}}</div>
-      <button @click="handleAddBtnClick">\u65B0\u589E</button>
-    </div>
-    <div v-for="(value,key,index) in listObject" :key="key">{{value}}-{{key}}-{{index}}</div>
-    <div v-for="(value,index) in listArray">{{value}}-{{index}}</div>
-  \`
-});
+    },
+    methods: {
+      handleAddBtnClick() {
+        // \u4F7F\u7528\u6578\u7D44\u51FD\u6578
+        this.listArray.pop();
+        // \u76F4\u63A5\u66FF\u6362\u6570\u7EC4
+        this.listArray = ['1', '2']
+        // \u76F4\u63A5\u66F4\u65B0\u6570\u7EC4\u7684\u5185\u5BB9
+        this.listArray[1] = 'hello'
+        // \u76F4\u63A5\u6DFB\u52A0\u5BF9\u8C61\u7684\u5185\u5BB9\uFF0C\u4E5F\u53EF\u4EE5\u81EA\u52A8\u7684\u5C55\u793A\u51FA\u6765
+        this.listObject.age = 100;
+      }
+    },
+    template: \`
+      <div>
+        <template v-for="(value, key, index) in listObject"
+          :key="index">
+          <div v-if="key !== 'lastName'">
+            {{value}} -- {{key}}
+          </div>
+        </template>
+        <div v-for="item in 10">{{item}}</div>
+        <button @click="handleAddBtnClick">\u65B0\u589E</button>
+      </div>
+      <div v-for="(value,key,index) in listObject" :key="key">{{value}}-{{key}}-{{index}}</div>
+      <div v-for="(value,index) in listArray">{{value}}-{{index}}</div>
+    \`
+  });
 
-const vm = app.mount('#root');
-\`\`\`
+  const vm = app.mount('#root');
+  \`\`\`
 
 ## \u4E8B\u4EF6\u7D81\u5B9A
 - \`\`\`v-on\`\`\` \u53EF\u4EE5\u4F7F\u65B9\u6CD5\u8207\u6A19\u7C64\u9032\u884C\u7D81\u5B9A\u89F8\u767C\u4E8B\u4EF6
