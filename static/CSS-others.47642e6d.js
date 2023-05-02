@@ -327,6 +327,33 @@ const n=`<span style="font-size: 32px; font-weight: 600;">CSS \u5176\u4ED6\u5BE6
     </div>
   </body>
   \`\`\`
+  
+## \u8A08\u6578\u5668
+- \u4E3B\u8981\u4F7F\u7528 \`counter-increment\`\u3001\`counter\`
+- \u7BC4\u4F8B
+  \`\`\`css
+  li {
+    list-style-type: unset;
+    /* \u5B9A\u7FA9\u4E00\u500B\u540D\u70BA fizzbuzz \u7684\u8A08\u6578\u5668 */
+    counter-increment: fizzbuzz;
+  }
+  /* \u5728\u6BCF\u500Bli\u5167\u5BB9\u524D\u9762\u52A0\u4E0A fizzbuzz \u7684\u8A08\u6578\u5668\u7684\u7576\u4E0B\u8A08\u6578 */
+  li::before {
+    content: counter(fizzbuzz);
+  }
+  /* \u5728li\u6A19\u7C64\u91CF\u70BA3\u7684\u500D\u6578\u6642\uFF0C\u5167\u5BB9\u524D\u9762\u589E\u52A0 fizz */
+  li:nth-child(3n)::before {
+    content: "fizz";
+  }
+  /* \u5728li\u6A19\u7C64\u91CF\u70BA5\u7684\u500D\u6578\u6642\uFF0C\u5167\u5BB9\u524D\u9762\u589E\u52A0 buzz */
+  li:nth-child(5n)::before {
+    content: "buzz";
+  }
+  /* \u5728li\u6A19\u7C64\u91CF\u70BA15\u7684\u500D\u6578\u6642\uFF0C\u5167\u5BB9\u524D\u9762\u589E\u52A0 fizzbuzz */
+  li:nth-child(15n)::before {
+    content: "fizzbuzz";
+  }
+  \`\`\`
 
 ## \u9801\u9762\u8A2D\u8A08\u5BEC\u5EA6\u8207\u9AD8\u5EA6
 - 1.\u6709\u8A2D\u8A08\u5716\u512A\u5148\u7D71\u4E00\u4F7F\u7528 \`rem\`
