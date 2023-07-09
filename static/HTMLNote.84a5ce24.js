@@ -522,4 +522,50 @@ const n=`<span style="font-size: 32px; font-weight: 600;">HTML \u7B46\u8A18</spa
     - caption\uFF1A\u8868\u683C\u6A19\u984C(\u9ED8\u8A8D\u8DDF\u8868\u683C\u4E00\u6A23\u5BEC)
     - cellpadding\uFF1A\u5B9A\u7FA9\u8868\u683C\u55AE\u5143\u7684\u5167\u5BB9\u8207\u908A\u6846\u4E4B\u9593\u7684\u7A7A\u9593(\u5DF2\u5EE2\u68C4,\u4F7F\u7528css\u66FF\u4EE3)
     - cellspacing\uFF1A\u5B9A\u7FA9\u5169\u500B\u55AE\u5143\u683C\u4E4B\u9593\u7684\u7A7A\u9593\u5927\u5C0F(\u4F7F\u7528\u767E\u5206\u6BD4\u6216\u50CF\u7D20)(\u5DF2\u5EE2\u68C4,\u4F7F\u7528css\u66FF\u4EE3)
+
+## iframe
+- \u7C21\u55AE\u7559\u500B\u4F7F\u7528\u7BC4\u4F8B\uFF0C\u4EE5\u65B9\u4FBF\u5F8C\u7E8C\u4F7F\u7528
+- \`html\` \u4F7F\u7528\u65B9\u5F0F
+  \`\`\`html
+  <!-- \u88E1\u9762\u5C6C\u6027\u53EF\u81EA\u5B9A\u7FA9 -->
+  <iframe  width="100%" height="270" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+  \`\`\`
+- \`js\` \u4F7F\u7528\u65B9\u5F0F
+  \`\`\`js
+  const iframe = document.createElement('iframe')
+  iframe.src = \`your.html\`
+  iframe.width = 'width'
+  iframe.height = \`height\`
+  iframe.frameBorder = '0'
+  iframe.marginWidth = '0'
+  iframe.marginHeight = '0'
+  iframe.scrolling = 'no'
+  // \u81EA\u5B9A\u7FA9 dataset
+  iframe.dataset.yourcustom = 'true'
+  // iframe \u5167\u90E8\u8B80\u53D6 dataset
+  frameElement.getAttribute('data-yourcustom')
+  // \u8F09\u5165\u6642\u89F8\u767C\u51FD\u6578
+  iframe.onload = () => fit(iframe)
+  // \u7576 iframe \u52A0\u8F09\u5B8C\u91CD\u65B0\u8A08\u7B97 iframe \u6240\u9700\u9AD8\u5EA6
+  function fit(iframe, times) {
+    // \u82E5\u8D85\u904E\u6307\u5B9A\u6B21\u6578\uFF0C\u5247\u8A8D\u5B9A\u4F7F\u7528\u8005\u65B7\u7DDA\u4E0D\u518D\u7B49\u5F85
+    if (!times) times = 1
+    if (times > 30) {
+      iframe.onload = null
+      return
+    }
+    const win = iframe.contentWindow
+    const doc = win.document
+    const html = doc.documentElement
+    const height = parseFloat(win.getComputedStyle(html).getPropertyValue('height'))
+    if (html && height) {
+      iframe.height = height
+      iframe.onload = null
+    } else {
+      // \u7B49\u5F85\u52A0\u8F09
+      times++
+      setTimeout(function () { singleFit(iframe, times) }, 1000)
+    }
+  }
+  \`\`\`
 `;export{n as default};

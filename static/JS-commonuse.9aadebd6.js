@@ -356,4 +356,11 @@ rgbToHex(255, 255, 255) // #ffffff
   - \u4E3B\u8981\u7528\u4F86\u547C\u53EB\u5F8C\u7AEF\u6578\u64DA\u7684\u7B2C\u4E09\u65B9\u5EAB
 - [number-precision](https://github.com/nefe/number-precision)
   - \u4E3B\u8981\u8655\u7406\u6578\u5B57\u5E38\u898B\u7684\u932F\u8AA4
+- [lz-string](https://github.com/pieroxy/lz-string/)
+  - [\u7DDA\u4E0A\u5C55\u793A](https://pieroxy.net/blog/pages/lz-string/demo.html)
+  - \u4E3B\u8981\u7528\u4F86\u58D3\u7E2E\u5B57\u4E32\uFF0C\u4EE5\u63D0\u9AD8\u5132\u5B58\u8207\u50B3\u8F38\u6548\u7387
+  - \u4F7F\u7528\u6B65\u9A5F\uFF1A
+    - 1.\u4E0B\u8F09[lib](https://github.com/pieroxy/lz-string/tree/master/libs)\u4E26\u5F15\u7528
+    - 2.\u4F7F\u7528 \`compress\` \u8207 \`decompress\` \u9032\u884C\u58D3\u7E2E\u8207\u89E3\u58D3\u7E2E\uFF0C\u901A\u5E38\u7528\u5728 \`localStorage\`
+    - \u5982\u679C\u7528\u4F86\u50B3\u8F38\u53EF\u6539\u7528 \`compressToBase64\` \u8207 \`decompressFromBase64\`
 `;export{n as default};

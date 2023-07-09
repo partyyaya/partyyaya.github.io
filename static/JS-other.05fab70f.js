@@ -759,4 +759,22 @@ const n=`<span style="font-size: 32px; font-weight: 600;">JS \u5176\u4ED6\u7528\
   // \u53D6\u6D88\u57F7\u884C
   window.cancelAnimationFrame(cancelID)
   \`\`\`
+
+## MutationObserver
+- \u529F\u7528\uFF1A\u76E3\u807D \`DOM\` \u6240\u9032\u884C\u7684\u66F4\u6539
+  - \u6709\u6642\u53EF\u7528\u5728\u865B\u64EC \`DOM\` \u8B8A\u66F4\u6642\u9032\u884C\u89F8\u767C
+- \u7BC4\u4F8B\uFF1A
+  \`\`\`js
+  function watchDOM() {
+    const observer = new MutationObserver(() => {
+      if (document.getElementById('nvm')) {
+        // \u5982\u679C\u5728\u76E3\u807D\u904E\u7A0B\u4E2D\u8A72\u5143\u7D20\u6539\u8B8A\u4E86\u5247\u6253\u5370
+        console.log(document.getElementById('nvm'))
+      }
+    })
+    // \u958B\u59CB\u76E3\u807D DOM
+    observer.observe(document, { childList: true, subtree: true });
+  }
+  watchDOM()
+  \`\`\`
 `;export{n as default};
